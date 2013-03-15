@@ -2,7 +2,9 @@ package hylinn.minecraft.ElementalWands;
 
 import java.util.Arrays;
 
+import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.EnumHelper;
 import hylinn.minecraft.ElementalWands.item.EnumWandElement;
 import hylinn.minecraft.ElementalWands.item.EnumWandMaterial;
 import hylinn.minecraft.ElementalWands.item.ItemWand;
@@ -23,8 +25,12 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class ElementalWands {
 
-    private static final Item woodFireWand = (new ItemWand(31000, EnumWandMaterial.WODD, EnumWandElement.FIRE)).setUnlocalizedName("woodFireWand");
+	// Creating the wands.
+    public static final Item woodFireWand = (new ItemWand(31000, EnumWandMaterial.WODD, EnumWandElement.FIRE)).setUnlocalizedName("woodFireWand");
 	
+    // Creating the enchantment type for wands.
+    public static final EnumEnchantmentType enchantmentWand = EnumHelper.addEnchantmentType("wand");
+    
     // The instance of your mod that Forge uses.
     @Instance("ElementalWands")
     public static ElementalWands instance;
