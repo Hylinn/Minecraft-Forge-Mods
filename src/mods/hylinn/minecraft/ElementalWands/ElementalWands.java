@@ -53,7 +53,7 @@ public class ElementalWands {
     }
    
     @PostInit
-    public void postInit(FMLPostInitializationEvent event) {
+    public void modsLoaded(FMLPostInitializationEvent event) {
         // Stub Method
     }
 }
