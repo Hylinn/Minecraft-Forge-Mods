@@ -21,7 +21,7 @@ public class ItemWand extends Item {
 	
 	public void func_94581_a(IconRegister iconRegister)
 	{
-	         iconIndex = iconRegister.func_94245_a("ElementalWands:emerald");
+	         iconIndex = iconRegister.func_94245_a("ElementalWands:blazerod");
 	}
 
 }
