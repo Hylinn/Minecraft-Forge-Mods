@@ -7,8 +7,14 @@
 /logs/*
 /modsrc/*
 /reobf/*
-#/runtime/*
+/runtime/*
 /temp/*
+#/resources/*
+/saves/*
+/stats/*
+/config/*
+/crash-reports/*
+#!/resources/mods/*
 
 /src/minecraft/*
 /src/minecraft_server/*
@@ -22,3 +28,6 @@ CHANGELOG
 LICENSE.txt
 .classpath
 .project
+ForgeModLoader*
+output*
+debug*

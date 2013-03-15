@@ -1,5 +1,10 @@
 package hylinn.minecraft.ElementalWands;
 
+import net.minecraft.item.Item;
+import hylinn.minecraft.ElementalWands.item.EnumWandElement;
+import hylinn.minecraft.ElementalWands.item.EnumWandMaterial;
+import hylinn.minecraft.ElementalWands.item.ItemWand;
+import hylinn.minecraft.ElementalWands.proxy.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -10,31 +15,35 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid="ElementalWands", name="Elemental Wands", version="0.0.1")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class ElementalWands {
 
-        // The instance of your mod that Forge uses.
-        @Instance("ElementalWands")
-        public static ElementalWands instance;
-       
-        // Says where the client and server 'proxy' code is loaded.
-        //@SidedProxy(clientSide="hylinn.minecraft.ElementalWands.client.ClientProxy", serverSide="hylinn.minecraft.ElementalWands.CommonProxy")
-        //public static CommonProxy proxy;
-       
-        @PreInit
-        public void preInit(FMLPreInitializationEvent event) {
-                // Stub Method
-        }
-       
-        @Init
-        public void load(FMLInitializationEvent event) {
-                //proxy.registerRenderers();
-        }
-       
-        @PostInit
-        public void postInit(FMLPostInitializationEvent event) {
-                // Stub Method
-        }
+	private static final Item woodFireWand = (new ItemWand(31000, EnumWandMaterial.WODD, EnumWandElement.FIRE)).setUnlocalizedName("woodFireWand");
+	
+    // The instance of your mod that Forge uses.
+    @Instance("ElementalWands")
+    public static ElementalWands instance;
+   
+    // Says where the client and server 'proxy' code is loaded.
+    @SidedProxy(clientSide="hylinn.minecraft.ElementalWands.proxy.ClientProxy", serverSide="hylinn.minecraft.ElementalWands.proxy.CommonProxy")
+    public static CommonProxy proxy;
+   
+    @PreInit
+    public void preInit(FMLPreInitializationEvent event) {
+            
+    }
+   
+    @Init
+    public void load(FMLInitializationEvent event) {
+    	LanguageRegistry.addName(woodFireWand, "Wood Fire Wand");
+        //proxy.registerRenderers();
+    }
+   
+    @PostInit
+    public void postInit(FMLPostInitializationEvent event) {
+            // Stub Method
+    }
 }
