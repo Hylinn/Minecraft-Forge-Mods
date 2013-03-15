@@ -21,7 +21,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class ElementalWands {
 
-	private static final Item woodFireWand = (new ItemWand(31000, EnumWandMaterial.WODD, EnumWandElement.FIRE)).setUnlocalizedName("woodFireWand");
+    private static final Item woodFireWand = (new ItemWand(31000, EnumWandMaterial.WODD, EnumWandElement.FIRE)).setUnlocalizedName("woodFireWand");
 	
     // The instance of your mod that Forge uses.
     @Instance("ElementalWands")
@@ -33,7 +33,15 @@ public class ElementalWands {
    
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
-            
+    	event.getModMetadata().version = "0.0.1";
+    	event.getModMetadata().name = "Elemental Wands";
+	event.getModMetadata().description = "Adds wands of the five elements (Fire, Earth, Water, Air, and Arcane)";
+	event.getModMetadata().authorList.addAll(Array.asList(new String[]{"Hylinn Taggart", "Matt Beyer"});
+	//event.getModMetadata().logoFile = "";
+	//event.getModMetadata().dependencies.addAll(Array.asList(new String[]{"mod_MinecraftForge"});
+	//event.getModMetadata().credits = "";
+	//event.getModMetadata().updateUrl = "";
+	//event.getModMetadata().modId = "";
     }
    
     @Init
@@ -44,6 +52,6 @@ public class ElementalWands {
    
     @PostInit
     public void postInit(FMLPostInitializationEvent event) {
-            // Stub Method
+        // Stub Method
     }
 }
