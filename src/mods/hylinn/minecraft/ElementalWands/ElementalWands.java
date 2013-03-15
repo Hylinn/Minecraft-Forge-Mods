@@ -1,5 +1,7 @@
 package hylinn.minecraft.ElementalWands;
 
+import java.util.Arrays;
+
 import net.minecraft.item.Item;
 import hylinn.minecraft.ElementalWands.item.EnumWandElement;
 import hylinn.minecraft.ElementalWands.item.EnumWandMaterial;
@@ -35,13 +37,13 @@ public class ElementalWands {
     public void preInit(FMLPreInitializationEvent event) {
     	event.getModMetadata().version = "0.0.1";
     	event.getModMetadata().name = "Elemental Wands";
-	event.getModMetadata().description = "Adds wands of the five elements (Fire, Earth, Water, Air, and Arcane)";
-	event.getModMetadata().authorList.addAll(Array.asList(new String[]{"Hylinn Taggart", "Matt Beyer"});
-	//event.getModMetadata().logoFile = "";
-	//event.getModMetadata().dependencies.addAll(Array.asList(new String[]{"mod_MinecraftForge"});
-	//event.getModMetadata().credits = "";
-	//event.getModMetadata().updateUrl = "";
-	//event.getModMetadata().modId = "";
+    	event.getModMetadata().description = "Adds wands of the five elements (Fire, Earth, Water, Air, and Arcane)";
+    	event.getModMetadata().authorList.addAll(Arrays.asList(new String[]{"Hylinn Taggart", "Matt Beyer"}));
+    	//event.getModMetadata().logoFile = "";
+    	//event.getModMetadata().dependencies.addAll(Arrays.asList(new String[]{"mod_MinecraftForge"}));
+    	//event.getModMetadata().credits = "";
+    	//event.getModMetadata().updateUrl = "";
+    	//event.getModMetadata().modId = "";
     }
    
     @Init
