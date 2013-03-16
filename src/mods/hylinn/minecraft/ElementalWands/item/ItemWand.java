@@ -15,6 +15,7 @@ import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
@@ -25,6 +26,10 @@ public class ItemWand extends Item {
 	private final EnumWandMaterial material;
 	private final EnumWandElement element;
 	private final int maxItemUseDuration = 72000;
+	private final String[] paths = new String[] {"bow_pull_0", "bow_pull_1", "bow_pull_2"};
+	
+    @SideOnly(Side.CLIENT)
+    private Icon[] icons;
 	
 	public ItemWand(int id, EnumWandMaterial material, EnumWandElement element) {
 		super(id);
@@ -118,9 +123,19 @@ public class ItemWand extends Item {
 		return this.material.getMaterialID() == resource.itemID ? true : super.getIsRepairable(item, resource);
     }
 	
-	@SideOnly(Side.CLIENT)
-	public void func_94581_a(IconRegister iconRegister) {
-		iconIndex = iconRegister.func_94245_a("ElementalWands:blazerod"); //TODO Set ItemWand texture to something dependent upon material and element.
+	public void func_94581_a(IconRegister iconRegister)
+    {
+		this.iconIndex = iconRegister.func_94245_a("ElementalWands:blazerod"); //TODO HAve different icons for different wands
+        this.icons = new Icon[paths.length];
+        
+        for (int i = 0; i < this.icons.length; ++i)
+        {
+            this.icons[i] = iconRegister.func_94245_a(paths[i]);
+        }
+    }
+	
+	public Icon getIcon(ItemStack itemHeld, int renderPass, EntityPlayer player, ItemStack itemInUse, int itemInUseCount) {
+		return itemInUse != null ? this.icons[((itemHeld.getMaxItemUseDuration() - itemInUseCount) / 10) % 3] : icons[0]; //TODO Change returned image based upon charge phase.
 	}
 	
 	public int getMaxItemUseDuration(ItemStack itemStack) {
