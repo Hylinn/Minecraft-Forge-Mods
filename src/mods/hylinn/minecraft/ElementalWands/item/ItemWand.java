@@ -25,11 +25,12 @@ public class ItemWand extends Item {
 	
 	private final EnumWandMaterial material;
 	private final EnumWandElement element;
-	private final int maxItemUseDuration = 72000;
-	private final String[] paths = new String[] {"bow_pull_0", "bow_pull_1", "bow_pull_2"};
+	private final int MAX_ITEM_USE_DURATION = 72000;
+	private final int NUM_OF_ANIMATION_ICONS = 3;
+	//private final String[] paths = new String[] {"bow_pull_0", "bow_pull_1", "bow_pull_2"};
 	
     @SideOnly(Side.CLIENT)
-    private Icon[] icons;
+    private Icon[] animationIcons = new Icon[NUM_OF_ANIMATION_ICONS];
 	
 	public ItemWand(int id, EnumWandMaterial material, EnumWandElement element) {
 		super(id);
@@ -125,21 +126,19 @@ public class ItemWand extends Item {
 	
 	public void func_94581_a(IconRegister iconRegister)
     {
-		this.iconIndex = iconRegister.func_94245_a("ElementalWands:blazerod"); //TODO HAve different icons for different wands
-        this.icons = new Icon[paths.length];
-        
-        for (int i = 0; i < this.icons.length; ++i)
+		this.iconIndex = iconRegister.func_94245_a(this.getIconPath());
+        for (int i = 0; i < this.animationIcons.length; ++i)
         {
-            this.icons[i] = iconRegister.func_94245_a(paths[i]);
+            this.animationIcons[i] = iconRegister.func_94245_a(this.getIconPath(i));
         }
     }
 	
 	public Icon getIcon(ItemStack itemHeld, int renderPass, EntityPlayer player, ItemStack itemInUse, int itemInUseCount) {
-		return itemInUse != null ? this.icons[((itemHeld.getMaxItemUseDuration() - itemInUseCount) / 10) % 3] : icons[0]; //TODO Change returned image based upon charge phase.
+		return itemInUse != null ? this.animationIcons[((itemHeld.getMaxItemUseDuration() - itemInUseCount) / 10) % 3] : this.iconIndex; //TODO Change returned image based upon charge phase.
 	}
 	
 	public int getMaxItemUseDuration(ItemStack itemStack) {
-        return maxItemUseDuration;
+        return MAX_ITEM_USE_DURATION;
     } 
 	
 	public boolean isFull3D() {
@@ -152,5 +151,13 @@ public class ItemWand extends Item {
 
 	public Object getElementMaterial() {
 		return element.getMaterial();
+	}
+	
+	public String getIconPath() {
+		return ElementalWands.modName + ":wand" + this.element.toString() + this.material.toString();
+	}
+	
+	public String getIconPath(int animation) {
+		return ElementalWands.modName + ":wand" + this.element.toString() + this.material.toString() + animation;
 	}
 }
