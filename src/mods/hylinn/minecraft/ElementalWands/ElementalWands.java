@@ -9,6 +9,7 @@ import net.minecraftforge.common.EnumHelper;
 import hylinn.minecraft.ElementalWands.item.EnumWandElement;
 import hylinn.minecraft.ElementalWands.item.EnumWandMaterial;
 import hylinn.minecraft.ElementalWands.item.ItemWand;
+import hylinn.minecraft.ElementalWands.item.crafting.RecipesWand;
 import hylinn.minecraft.ElementalWands.proxy.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -20,6 +21,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid="ElementalWands", name="Elemental Wands", version="0.0.1")
@@ -122,6 +124,9 @@ public class ElementalWands {
     	LanguageRegistry.addName(ironArcaneWand,   "Iron Arcane Wand");
     	LanguageRegistry.addName(quartzArcaneWand, "Nether Quartz Arcane Wand");
     	LanguageRegistry.addName(goldArcaneWand,   "Gold Arcane Wand");
+    	
+    	// Add recipes for the wands.
+    	RecipesWand.addRecipes();
     	
         //proxy.registerRenderers();
     }
