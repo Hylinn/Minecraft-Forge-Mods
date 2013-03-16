@@ -33,12 +33,12 @@ public enum EnumWandMaterial {
     {
         switch (this)
         {
-            case WOOD:    return Item.stick.itemID;
-            case BONE:    return Item.bone.itemID;
-            case GOLD:    return Item.ingotGold.itemID;
-            case IRON:    return Item.ingotIron.itemID;
-            case QUARTZ:  return Item.field_94583_ca.itemID; // field_94583_ca will probably change in the future.
-            default:      return (customCraftingMaterial == null ? 0 : customCraftingMaterial.itemID);
+            case WOOD:   return Item.stick.itemID;
+            case BONE:   return Item.bone.itemID;
+            case GOLD:   return Item.ingotGold.itemID;
+            case IRON:   return Item.ingotIron.itemID;
+            case QUARTZ: return Item.field_94583_ca.itemID; // field_94583_ca will probably change in the future.
+            default:     return (customCraftingMaterial == null ? 0 : customCraftingMaterial.itemID);
         }
     }
 }
