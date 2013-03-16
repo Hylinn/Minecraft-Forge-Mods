@@ -125,9 +125,17 @@ public class ItemWand extends Item {
 	
 	public int getMaxItemUseDuration(ItemStack itemStack) {
         return maxItemUseDuration;
-    }
+    } 
 	
 	public boolean isFull3D() {
         return true;
     }
+
+	public Object getWandMaterial() {
+		return material.getMaterial();
+	}
+
+	public Object getElementMaterial() {
+		return element.getMaterial();
+	}
 }
