@@ -25,6 +25,6 @@ public enum EnumWandElement {
 	}
 	
 	public int getMaterialID() {
-		return material instanceof Item ? ((Item)material).itemID : ((Block)material).blockID;
+		return material instanceof Item ? ((Item) material).itemID : ((Block) material).blockID;
 	}
 }
