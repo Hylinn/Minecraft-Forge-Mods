@@ -29,7 +29,7 @@ public enum EnumWandMaterial {
         return this.enchantability;
     }
 	
-	public int getToolCraftingMaterial()
+	public int getWandCraftingMaterial()
     {
         switch (this)
         {
