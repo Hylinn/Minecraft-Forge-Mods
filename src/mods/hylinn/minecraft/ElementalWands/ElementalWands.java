@@ -33,11 +33,11 @@ public class ElementalWands {
     public static final Item goldFireWand   = (new ItemWand(31004, EnumWandMaterial.GOLD,   EnumWandElement.FIRE)).setUnlocalizedName("goldFireWand");
     
     // Create the earth wands.
-    public static final Item woodEarthWand   = (new ItemWand(31000, EnumWandMaterial.WOOD,   EnumWandElement.EARTH)).setUnlocalizedName("woodEarthWand");
-    public static final Item boneEarthWand   = (new ItemWand(31001, EnumWandMaterial.BONE,   EnumWandElement.EARTH)).setUnlocalizedName("boneEarthWand");
-    public static final Item ironEarthWand   = (new ItemWand(31002, EnumWandMaterial.IRON,   EnumWandElement.EARTH)).setUnlocalizedName("ironEarthWand");
-    public static final Item quartzEarthWand = (new ItemWand(31003, EnumWandMaterial.QUARTZ, EnumWandElement.EARTH)).setUnlocalizedName("quartzEarthWand");
-    public static final Item goldEarthWand   = (new ItemWand(31004, EnumWandMaterial.GOLD,   EnumWandElement.EARTH)).setUnlocalizedName("goldEarthWand");
+    public static final Item woodEarthWand   = (new ItemWand(31005, EnumWandMaterial.WOOD,   EnumWandElement.EARTH)).setUnlocalizedName("woodEarthWand");
+    public static final Item boneEarthWand   = (new ItemWand(31006, EnumWandMaterial.BONE,   EnumWandElement.EARTH)).setUnlocalizedName("boneEarthWand");
+    public static final Item ironEarthWand   = (new ItemWand(31007, EnumWandMaterial.IRON,   EnumWandElement.EARTH)).setUnlocalizedName("ironEarthWand");
+    public static final Item quartzEarthWand = (new ItemWand(31008, EnumWandMaterial.QUARTZ, EnumWandElement.EARTH)).setUnlocalizedName("quartzEarthWand");
+    public static final Item goldEarthWand   = (new ItemWand(31009, EnumWandMaterial.GOLD,   EnumWandElement.EARTH)).setUnlocalizedName("goldEarthWand");
 	
     // Create the enchantment type for wands.
     public static final EnumEnchantmentType enchantmentWand = EnumHelper.addEnchantmentType("wand");
