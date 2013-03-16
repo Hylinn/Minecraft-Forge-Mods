@@ -1,22 +1,29 @@
 package hylinn.minecraft.ElementalWands.item;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
 public enum EnumWandMaterial {
-	WOOD   (10, 10),
-	BONE   (20, 15),
-	IRON   (30, 12),
-	QUARTZ (60, 12),
-	GOLD   (50, 20);
+	WOOD   (10, 10, Item.stick),
+	BONE   (20, 15, Item.bone),
+	IRON   (30, 12, Item.ingotGold),
+	QUARTZ (60, 12, Item.ingotIron),
+	GOLD   (50, 20, Item.field_94583_ca);
 	
 	private final int enchantability;
 	private final int maxCharges;
+	private final Object material;
 	
-	public Item customCraftingMaterial = null;
-	
-	private EnumWandMaterial(int maxCharges, int enchantability) {
+	private EnumWandMaterial(int maxCharges, int enchantability, Item material) {
 		this.enchantability = enchantability;
 		this.maxCharges = maxCharges;
+		this.material = material;
+	}
+	
+	private EnumWandMaterial(int maxCharges, int enchantability, Block material) {
+		this.enchantability = enchantability;
+		this.maxCharges = maxCharges;
+		this.material = material;
 	}
 	
 	public int getMaxCharges()
@@ -29,16 +36,11 @@ public enum EnumWandMaterial {
         return this.enchantability;
     }
 	
-	public int getWandCraftingMaterial()
-    {
-        switch (this)
-        {
-            case WOOD:   return Item.stick.itemID;
-            case BONE:   return Item.bone.itemID;
-            case GOLD:   return Item.ingotGold.itemID;
-            case IRON:   return Item.ingotIron.itemID;
-            case QUARTZ: return Item.field_94583_ca.itemID; // field_94583_ca will probably change in the future.
-            default:     return (customCraftingMaterial == null ? 0 : customCraftingMaterial.itemID);
-        }
-    }
+	public Object getMaterial() {
+		return this.material;
+	}
+	
+	public int getMaterialID() {
+		return material instanceof Item ? ((Item)material).itemID : ((Block)material).blockID;
+	}
 }

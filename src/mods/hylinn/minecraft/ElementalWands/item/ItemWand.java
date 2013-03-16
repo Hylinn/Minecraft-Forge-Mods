@@ -5,6 +5,7 @@ import hylinn.minecraft.ElementalWands.event.WandCastEvent;
 import hylinn.minecraft.ElementalWands.event.WandChargeEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
@@ -47,18 +48,19 @@ public class ItemWand extends Item {
         
         charge = event.charge;
         
-        float f = (float)charge / 20.0F;
-        f = (f * f + f * 2.0F) / 3.0F;
-
-        if ((double)f < 0.1D)
-        {
-            return;
-        }
-
-        if (f > 1.0F)
-        {
-            f = 1.0F;
-        }
+        //TODO Calculate results of charging.
+//        float f = (float)charge / 20.0F;
+//        f = (f * f + f * 2.0F) / 3.0F;
+//
+//        if ((double)f < 0.1D)
+//        {
+//            return;
+//        }
+//
+//        if (f > 1.0F)
+//        {
+//            f = 1.0F;
+//        }
 
 //        EntityArrow entityarrow = new EntityArrow(par2World, par3EntityPlayer, f * 2.0F);
 
@@ -89,7 +91,7 @@ public class ItemWand extends Item {
         //TODO Actually cast a wand's spell.
 
         itemStack.damageItem(1, player); //TODO Change damage based upon charge time.
-        world.playSoundAtEntity(player, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F); //TODO Create and use wand random wand sounds.
+//        world.playSoundAtEntity(player, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F); //TODO Create and use wand random wand sounds.
 	}
 	
 	public ItemStack onItemRightClick(ItemStack itemStack, World wWorld, EntityPlayer player) {
@@ -113,15 +115,19 @@ public class ItemWand extends Item {
     }
 	
 	public boolean getIsRepairable(ItemStack item, ItemStack resource) {
-		return this.material.getWandCraftingMaterial() == resource.itemID ? true : super.getIsRepairable(item, resource);
+		return this.material.getMaterialID() == resource.itemID ? true : super.getIsRepairable(item, resource);
     }
 	
 	@SideOnly(Side.CLIENT)
 	public void func_94581_a(IconRegister iconRegister) {
-	         iconIndex = iconRegister.func_94245_a("ElementalWands:blazerod"); //TODO Set ItemWand texture to something dependent upon material and element.
+		iconIndex = iconRegister.func_94245_a("ElementalWands:blazerod"); //TODO Set ItemWand texture to something dependent upon material and element.
 	}
 	
 	public int getMaxItemUseDuration(ItemStack itemStack) {
         return maxItemUseDuration;
+    }
+	
+	public boolean isFull3D() {
+        return true;
     }
 }
