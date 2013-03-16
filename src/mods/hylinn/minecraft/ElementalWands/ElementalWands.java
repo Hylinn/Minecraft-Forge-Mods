@@ -38,6 +38,13 @@ public class ElementalWands {
     public static final Item ironEarthWand   = (new ItemWand(31007, EnumWandMaterial.IRON,   EnumWandElement.EARTH)).setUnlocalizedName("ironEarthWand");
     public static final Item quartzEarthWand = (new ItemWand(31008, EnumWandMaterial.QUARTZ, EnumWandElement.EARTH)).setUnlocalizedName("quartzEarthWand");
     public static final Item goldEarthWand   = (new ItemWand(31009, EnumWandMaterial.GOLD,   EnumWandElement.EARTH)).setUnlocalizedName("goldEarthWand");
+    
+    // Create the water wands.
+    public static final Item woodWaterWand   = (new ItemWand(31010, EnumWandMaterial.WOOD,   EnumWandElement.WATER)).setUnlocalizedName("woodWaterWand");
+    public static final Item boneWaterWand   = (new ItemWand(31011, EnumWandMaterial.BONE,   EnumWandElement.WATER)).setUnlocalizedName("boneWaterWand");
+    public static final Item ironWaterWand   = (new ItemWand(31012, EnumWandMaterial.IRON,   EnumWandElement.WATER)).setUnlocalizedName("ironWaterWand");
+    public static final Item quartzWaterWand = (new ItemWand(31013, EnumWandMaterial.QUARTZ, EnumWandElement.WATER)).setUnlocalizedName("quartzWaterWand");
+    public static final Item goldWaterWand   = (new ItemWand(31014, EnumWandMaterial.GOLD,   EnumWandElement.WATER)).setUnlocalizedName("goldWaterWand");
 	
     // Create the enchantment type for wands.
     public static final EnumEnchantmentType enchantmentWand = EnumHelper.addEnchantmentType("wand");
@@ -78,6 +85,13 @@ public class ElementalWands {
     	LanguageRegistry.addName(ironEarthWand,   "Iron Earth Wand");
     	LanguageRegistry.addName(quartzEarthWand, "Nether Quartz Earth Wand");
     	LanguageRegistry.addName(goldEarthWand,   "Gold Earth Wand");
+    	
+    	// Register the earth wands.
+    	LanguageRegistry.addName(woodWaterWand,   "Wood Water Wand");
+    	LanguageRegistry.addName(boneWaterWand,   "Bone Water Wand");
+    	LanguageRegistry.addName(ironWaterWand,   "Iron Water Wand");
+    	LanguageRegistry.addName(quartzWaterWand, "Nether Quartz Water Wand");
+    	LanguageRegistry.addName(goldWaterWand,   "Gold Water Wand");
         //proxy.registerRenderers();
     }
    
