@@ -26,11 +26,11 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class ElementalWands {
 
 	// Creating the wands.
-    public static final Item woodFireWand   = (new ItemWand(31000, EnumWandMaterial.WOOD, EnumWandElement.FIRE)).setUnlocalizedName("woodFireWand");
-    public static final Item boneFireWand   = (new ItemWand(31001, EnumWandMaterial.WOOD, EnumWandElement.FIRE)).setUnlocalizedName("boneFireWand");
-    public static final Item ironFireWand   = (new ItemWand(31002, EnumWandMaterial.WOOD, EnumWandElement.FIRE)).setUnlocalizedName("boneFireWand");
-    public static final Item quartzFireWand = (new ItemWand(31003, EnumWandMaterial.WOOD, EnumWandElement.FIRE)).setUnlocalizedName("boneFireWand");
-    public static final Item goldFireWand   = (new ItemWand(31004, EnumWandMaterial.WOOD, EnumWandElement.FIRE)).setUnlocalizedName("boneFireWand");
+    public static final Item woodFireWand   = (new ItemWand(31000, EnumWandMaterial.WOOD,   EnumWandElement.FIRE)).setUnlocalizedName("woodFireWand");
+    public static final Item boneFireWand   = (new ItemWand(31001, EnumWandMaterial.BONE,   EnumWandElement.FIRE)).setUnlocalizedName("boneFireWand");
+    public static final Item ironFireWand   = (new ItemWand(31002, EnumWandMaterial.IRON,   EnumWandElement.FIRE)).setUnlocalizedName("ironFireWand");
+    public static final Item quartzFireWand = (new ItemWand(31003, EnumWandMaterial.QUARTZ, EnumWandElement.FIRE)).setUnlocalizedName("quartzFireWand");
+    public static final Item goldFireWand   = (new ItemWand(31004, EnumWandMaterial.GOLD,   EnumWandElement.FIRE)).setUnlocalizedName("goldFireWand");
 	
     // Creating the enchantment type for wands.
     public static final EnumEnchantmentType enchantmentWand = EnumHelper.addEnchantmentType("wand");
@@ -58,7 +58,11 @@ public class ElementalWands {
    
     @Init
     public void load(FMLInitializationEvent event) {
-    	LanguageRegistry.addName(woodFireWand, "Wood Fire Wand");
+    	LanguageRegistry.addName(woodFireWand,   "Wood Fire Wand");
+    	LanguageRegistry.addName(boneFireWand,   "Bone Fire Wand");
+    	LanguageRegistry.addName(ironFireWand,   "Iron Fire Wand");
+    	LanguageRegistry.addName(quartzFireWand, "Nether Quartz Fire Wand");
+    	LanguageRegistry.addName(goldFireWand,   "Gold Fire Wand");
         //proxy.registerRenderers();
     }
    
