@@ -45,15 +45,20 @@ public class ElementalWands {
     public static final Item ironWaterWand   = (new ItemWand(31012, EnumWandMaterial.IRON,   EnumWandElement.WATER)).setUnlocalizedName("ironWaterWand");
     public static final Item quartzWaterWand = (new ItemWand(31013, EnumWandMaterial.QUARTZ, EnumWandElement.WATER)).setUnlocalizedName("quartzWaterWand");
     public static final Item goldWaterWand   = (new ItemWand(31014, EnumWandMaterial.GOLD,   EnumWandElement.WATER)).setUnlocalizedName("goldWaterWand");
+    
+    // Create the air wands.
+    public static final Item woodAirWand   = (new ItemWand(31015, EnumWandMaterial.WOOD,   EnumWandElement.AIR)).setUnlocalizedName("woodAirWand");
+    public static final Item boneAirWand   = (new ItemWand(31016, EnumWandMaterial.BONE,   EnumWandElement.AIR)).setUnlocalizedName("boneAirWand");
+    public static final Item ironAirWand   = (new ItemWand(31017, EnumWandMaterial.IRON,   EnumWandElement.AIR)).setUnlocalizedName("ironAirWand");
+    public static final Item quartzAirWand = (new ItemWand(31018, EnumWandMaterial.QUARTZ, EnumWandElement.AIR)).setUnlocalizedName("quartzAirWand");
+    public static final Item goldAirWand   = (new ItemWand(31019, EnumWandMaterial.GOLD,   EnumWandElement.AIR)).setUnlocalizedName("goldAirWand");
 	
     // Create the enchantment type for wands.
     public static final EnumEnchantmentType enchantmentWand = EnumHelper.addEnchantmentType("wand");
     
-    // The instance of your mod that Forge uses.
     @Instance("ElementalWands")
     public static ElementalWands instance;
    
-    // Says where the client and server 'proxy' code is loaded.
     @SidedProxy(clientSide="hylinn.minecraft.ElementalWands.proxy.ClientProxy", serverSide="hylinn.minecraft.ElementalWands.proxy.CommonProxy")
     public static CommonProxy proxy;
    
@@ -86,12 +91,20 @@ public class ElementalWands {
     	LanguageRegistry.addName(quartzEarthWand, "Nether Quartz Earth Wand");
     	LanguageRegistry.addName(goldEarthWand,   "Gold Earth Wand");
     	
-    	// Register the earth wands.
+    	// Register the water wands.
     	LanguageRegistry.addName(woodWaterWand,   "Wood Water Wand");
     	LanguageRegistry.addName(boneWaterWand,   "Bone Water Wand");
     	LanguageRegistry.addName(ironWaterWand,   "Iron Water Wand");
     	LanguageRegistry.addName(quartzWaterWand, "Nether Quartz Water Wand");
     	LanguageRegistry.addName(goldWaterWand,   "Gold Water Wand");
+    	
+    	// Register the air wands.
+    	LanguageRegistry.addName(woodAirWand,   "Wood Air Wand");
+    	LanguageRegistry.addName(boneAirWand,   "Bone Air Wand");
+    	LanguageRegistry.addName(ironAirWand,   "Iron Air Wand");
+    	LanguageRegistry.addName(quartzAirWand, "Nether Quartz Air Wand");
+    	LanguageRegistry.addName(goldAirWand,   "Gold Air Wand");
+    	
         //proxy.registerRenderers();
     }
    
