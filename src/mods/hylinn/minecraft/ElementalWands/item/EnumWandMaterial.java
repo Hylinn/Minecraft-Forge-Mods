@@ -4,6 +4,6 @@ public enum EnumWandMaterial {
 	WOOD,
 	BONE,
 	IRON,
-	NETHER_QUARTZ,
+	QUARTZ,
 	GOLD;
 }
