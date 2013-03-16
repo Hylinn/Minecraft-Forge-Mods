@@ -25,14 +25,21 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class ElementalWands {
 
-	// Creating the wands.
+	// Create the fire wands.
     public static final Item woodFireWand   = (new ItemWand(31000, EnumWandMaterial.WOOD,   EnumWandElement.FIRE)).setUnlocalizedName("woodFireWand");
     public static final Item boneFireWand   = (new ItemWand(31001, EnumWandMaterial.BONE,   EnumWandElement.FIRE)).setUnlocalizedName("boneFireWand");
     public static final Item ironFireWand   = (new ItemWand(31002, EnumWandMaterial.IRON,   EnumWandElement.FIRE)).setUnlocalizedName("ironFireWand");
     public static final Item quartzFireWand = (new ItemWand(31003, EnumWandMaterial.QUARTZ, EnumWandElement.FIRE)).setUnlocalizedName("quartzFireWand");
     public static final Item goldFireWand   = (new ItemWand(31004, EnumWandMaterial.GOLD,   EnumWandElement.FIRE)).setUnlocalizedName("goldFireWand");
+    
+    // Create the earth wands.
+    public static final Item woodEarthWand   = (new ItemWand(31000, EnumWandMaterial.WOOD,   EnumWandElement.EARTH)).setUnlocalizedName("woodEarthWand");
+    public static final Item boneEarthWand   = (new ItemWand(31001, EnumWandMaterial.BONE,   EnumWandElement.EARTH)).setUnlocalizedName("boneEarthWand");
+    public static final Item ironEarthWand   = (new ItemWand(31002, EnumWandMaterial.IRON,   EnumWandElement.EARTH)).setUnlocalizedName("ironEarthWand");
+    public static final Item quartzEarthWand = (new ItemWand(31003, EnumWandMaterial.QUARTZ, EnumWandElement.EARTH)).setUnlocalizedName("quartzEarthWand");
+    public static final Item goldEarthWand   = (new ItemWand(31004, EnumWandMaterial.GOLD,   EnumWandElement.EARTH)).setUnlocalizedName("goldEarthWand");
 	
-    // Creating the enchantment type for wands.
+    // Create the enchantment type for wands.
     public static final EnumEnchantmentType enchantmentWand = EnumHelper.addEnchantmentType("wand");
     
     // The instance of your mod that Forge uses.
@@ -58,11 +65,19 @@ public class ElementalWands {
    
     @Init
     public void load(FMLInitializationEvent event) {
+    	// Register the fire wands.
     	LanguageRegistry.addName(woodFireWand,   "Wood Fire Wand");
     	LanguageRegistry.addName(boneFireWand,   "Bone Fire Wand");
     	LanguageRegistry.addName(ironFireWand,   "Iron Fire Wand");
     	LanguageRegistry.addName(quartzFireWand, "Nether Quartz Fire Wand");
     	LanguageRegistry.addName(goldFireWand,   "Gold Fire Wand");
+    	
+    	// Register the earth wands.
+    	LanguageRegistry.addName(woodEarthWand,   "Wood Earth Wand");
+    	LanguageRegistry.addName(boneEarthWand,   "Bone Earth Wand");
+    	LanguageRegistry.addName(ironEarthWand,   "Iron Earth Wand");
+    	LanguageRegistry.addName(quartzEarthWand, "Nether Quartz Earth Wand");
+    	LanguageRegistry.addName(goldEarthWand,   "Gold Earth Wand");
         //proxy.registerRenderers();
     }
    
