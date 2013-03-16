@@ -3,6 +3,7 @@ package hylinn.minecraft.ElementalWands;
 import java.util.Arrays;
 
 import net.minecraft.enchantment.EnumEnchantmentType;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.EnumHelper;
 import hylinn.minecraft.ElementalWands.item.EnumWandElement;
@@ -62,6 +63,9 @@ public class ElementalWands {
 	
     // Create the enchantment type for wands.
     public static final EnumEnchantmentType enchantmentWand = EnumHelper.addEnchantmentType("wand");
+    
+    // Create the action type for wands.
+    public static final EnumAction actionWand = EnumHelper.addAction("wand");
     
     @Instance("ElementalWands")
     public static ElementalWands instance;
