@@ -6,9 +6,9 @@ import net.minecraft.item.Item;
 public enum EnumWandMaterial {
 	WOOD   (10, 10, Item.stick),
 	BONE   (20, 15, Item.bone),
-	IRON   (30, 12, Item.ingotGold),
-	QUARTZ (60, 12, Item.ingotIron),
-	GOLD   (50, 20, Item.field_94583_ca);
+	IRON   (30, 12, Item.ingotIron),
+	QUARTZ (60, 12, Item.field_94583_ca),
+	GOLD   (50, 20, Item.ingotGold);
 	
 	private final int enchantability;
 	private final int maxCharges;
