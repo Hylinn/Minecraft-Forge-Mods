@@ -52,6 +52,13 @@ public class ElementalWands {
     public static final Item ironAirWand   = (new ItemWand(31017, EnumWandMaterial.IRON,   EnumWandElement.AIR)).setUnlocalizedName("ironAirWand");
     public static final Item quartzAirWand = (new ItemWand(31018, EnumWandMaterial.QUARTZ, EnumWandElement.AIR)).setUnlocalizedName("quartzAirWand");
     public static final Item goldAirWand   = (new ItemWand(31019, EnumWandMaterial.GOLD,   EnumWandElement.AIR)).setUnlocalizedName("goldAirWand");
+    
+    // Create the arcane wands.
+    public static final Item woodArcaneWand   = (new ItemWand(31015, EnumWandMaterial.WOOD,   EnumWandElement.ARCANE)).setUnlocalizedName("woodArcaneWand");
+    public static final Item boneArcaneWand   = (new ItemWand(31016, EnumWandMaterial.BONE,   EnumWandElement.ARCANE)).setUnlocalizedName("boneArcaneWand");
+    public static final Item ironArcaneWand   = (new ItemWand(31017, EnumWandMaterial.IRON,   EnumWandElement.ARCANE)).setUnlocalizedName("ironArcaneWand");
+    public static final Item quartzArcaneWand = (new ItemWand(31018, EnumWandMaterial.QUARTZ, EnumWandElement.ARCANE)).setUnlocalizedName("quartzArcaneWand");
+    public static final Item goldArcaneWand   = (new ItemWand(31019, EnumWandMaterial.GOLD,   EnumWandElement.ARCANE)).setUnlocalizedName("goldArcaneWand");
 	
     // Create the enchantment type for wands.
     public static final EnumEnchantmentType enchantmentWand = EnumHelper.addEnchantmentType("wand");
@@ -104,6 +111,13 @@ public class ElementalWands {
     	LanguageRegistry.addName(ironAirWand,   "Iron Air Wand");
     	LanguageRegistry.addName(quartzAirWand, "Nether Quartz Air Wand");
     	LanguageRegistry.addName(goldAirWand,   "Gold Air Wand");
+    	
+    	// Register the arcane wands.
+    	LanguageRegistry.addName(woodArcaneWand,   "Wood Arcane Wand");
+    	LanguageRegistry.addName(boneArcaneWand,   "Bone Arcane Wand");
+    	LanguageRegistry.addName(ironArcaneWand,   "Iron Arcane Wand");
+    	LanguageRegistry.addName(quartzArcaneWand, "Nether Quartz Arcane Wand");
+    	LanguageRegistry.addName(goldArcaneWand,   "Gold Arcane Wand");
     	
         //proxy.registerRenderers();
     }
