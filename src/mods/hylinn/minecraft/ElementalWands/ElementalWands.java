@@ -26,7 +26,11 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class ElementalWands {
 
 	// Creating the wands.
-    public static final Item woodFireWand = (new ItemWand(31000, EnumWandMaterial.WODD, EnumWandElement.FIRE)).setUnlocalizedName("woodFireWand");
+    public static final Item woodFireWand   = (new ItemWand(31000, EnumWandMaterial.WOOD, EnumWandElement.FIRE)).setUnlocalizedName("woodFireWand");
+    public static final Item boneFireWand   = (new ItemWand(31001, EnumWandMaterial.WOOD, EnumWandElement.FIRE)).setUnlocalizedName("boneFireWand");
+    public static final Item ironFireWand   = (new ItemWand(31002, EnumWandMaterial.WOOD, EnumWandElement.FIRE)).setUnlocalizedName("boneFireWand");
+    public static final Item quartzFireWand = (new ItemWand(31003, EnumWandMaterial.WOOD, EnumWandElement.FIRE)).setUnlocalizedName("boneFireWand");
+    public static final Item goldFireWand   = (new ItemWand(31004, EnumWandMaterial.WOOD, EnumWandElement.FIRE)).setUnlocalizedName("boneFireWand");
 	
     // Creating the enchantment type for wands.
     public static final EnumEnchantmentType enchantmentWand = EnumHelper.addEnchantmentType("wand");

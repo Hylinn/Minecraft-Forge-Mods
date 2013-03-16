@@ -1,7 +1,7 @@
 package hylinn.minecraft.ElementalWands.item;
 
 public enum EnumWandMaterial {
-	WODD,
+	WOOD,
 	BONE,
 	IRON,
 	NETHER_QUARTZ,
