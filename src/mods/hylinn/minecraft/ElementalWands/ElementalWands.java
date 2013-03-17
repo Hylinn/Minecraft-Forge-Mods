@@ -2,10 +2,12 @@ package hylinn.minecraft.ElementalWands;
 
 import java.util.Arrays;
 
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.EnumHelper;
+import hylinn.minecraft.ElementalWands.enchantment.EnchantmentFireball;
 import hylinn.minecraft.ElementalWands.item.EnumWandElement;
 import hylinn.minecraft.ElementalWands.item.EnumWandMaterial;
 import hylinn.minecraft.ElementalWands.item.ItemWand;
@@ -24,13 +26,15 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod(modid="ElementalWands", name="Elemental Wands", version="0.0.1")
+@Mod(modid="ElementalWands", name="Elemental Wands", version="0.0.2")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class ElementalWands {
 
     public static ItemWand[] wands;
-    public static final int wandStartId = 31000;
+    private static final int wandStartId = 31000;
     public static final String modName = "ElementalWands";
+    
+    public static final Enchantment fireball = new EnchantmentFireball(200, 10);
     
     // Create the enchantment type for wands.
     public static final EnumEnchantmentType enchantmentWand = EnumHelper.addEnchantmentType("wand");
@@ -60,6 +64,7 @@ public class ElementalWands {
     @Init
     public void load(FMLInitializationEvent event) {
     	
+    	// Create and register all of the wands.
     	wands = new ItemWand[EnumWandElement.values().length * EnumWandMaterial.values().length];
     	int wandIndex = 0;
     	for (EnumWandElement element : EnumWandElement.values()) {
