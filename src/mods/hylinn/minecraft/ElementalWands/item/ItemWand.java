@@ -29,7 +29,6 @@ public class ItemWand extends Item {
 	private final int MAX_ITEM_USE_DURATION = 72000;
 	private final int NUM_OF_ANIMATION_ICONS = 3;
 	
-    @SideOnly(Side.CLIENT)
     private Icon[] animationIcons = new Icon[NUM_OF_ANIMATION_ICONS];
 	
 	public ItemWand(int id, EnumWandMaterial material, EnumWandElement element) {
@@ -53,20 +52,6 @@ public class ItemWand extends Item {
             return;
         
         charge = event.charge;
-        
-        //TODO Calculate results of charging.
-//        float f = (float)charge / 20.0F;
-//        f = (f * f + f * 2.0F) / 3.0F;
-//
-//        if ((double)f < 0.1D)
-//        {
-//            return;
-//        }
-//
-//        if (f > 1.0F)
-//        {
-//            f = 1.0F;
-//        }
 
         itemStack.damageItem(this.castWandSpell(itemStack, world, player, charge), player);
         
@@ -107,7 +92,8 @@ public class ItemWand extends Item {
     }
 	
 	public Icon getIcon(ItemStack itemHeld, int renderPass, EntityPlayer player, ItemStack itemInUse, int itemInUseCount) {
-		return itemInUse != null ? this.animationIcons[((itemHeld.getMaxItemUseDuration() - itemInUseCount) / 10) % 3] : this.iconIndex; //TODO Change returned image based upon charge phase.
+		float charge = (float) (itemHeld.getMaxItemUseDuration() - itemInUseCount) / 20.0F;
+		return itemInUse != null && charge > 1 ? this.animationIcons[(int) Math.min(NUM_OF_ANIMATION_ICONS - 1, (charge - 1) / 2)] : this.iconIndex;
 	}
 	
 	public int getMaxItemUseDuration(ItemStack itemStack) {
