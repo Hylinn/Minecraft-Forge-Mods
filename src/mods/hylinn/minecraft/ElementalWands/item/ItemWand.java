@@ -38,7 +38,7 @@ public class ItemWand extends Item {
 		
 		// Constructor Configuration
 		this.setMaxStackSize(1);
-		this.setCreativeTab(CreativeTabs.tabCombat);
+		this.setCreativeTab(ElementalWands.wandTab);
 		this.setMaxDamage(material.getMaxCharges());
 		this.material = material;
 		this.element = element;
@@ -162,11 +162,11 @@ public class ItemWand extends Item {
 	
 	public int castWandSpell(ItemStack stack, World world, EntityLiving entity, int charge) {
 		@SuppressWarnings("unchecked")
-		Map<Short, Short> enchantments = EnchantmentHelper.getEnchantments(stack);
+		Map<Integer, Integer> enchantments = EnchantmentHelper.getEnchantments(stack);
 		int returnDamage = 0;
 		        
         if (enchantments.size() > 0) {
-        	for (Entry<Short, Short> enchantmentEntry : enchantments.entrySet()) {
+        	for (Entry<Integer, Integer> enchantmentEntry : enchantments.entrySet()) {
         		Enchantment enchantment = Enchantment.enchantmentsList[enchantmentEntry.getKey()];
         		if (enchantment instanceof ICastable)
         			returnDamage += ((ICastable) enchantment).cast(stack, world, entity, enchantmentEntry.getValue(), charge);
@@ -176,14 +176,19 @@ public class ItemWand extends Item {
         	switch(element) {
         		case AIR:
         			returnDamage = this.castAirSpell(stack, world, entity, charge);
+        			break;
         		case WATER:
         			returnDamage = this.castWaterSpell(stack, world, entity, charge);
+        			break;
         		case EARTH:
         			returnDamage = this.castEarthSpell(stack, world, entity, charge);
+        			break;
         		case FIRE:
         			returnDamage = this.castFireSpell(stack, world, entity, charge);
+        			break;
         		case ARCANE:
         			returnDamage = this.castArcaneSpell(stack, world, entity, charge);
+        			break;
         	}
         }
         return returnDamage;
