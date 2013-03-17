@@ -4,11 +4,11 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
 public enum EnumWandMaterial {
-	WOOD   (10, 10, Item.stick, "Wood"),
-	BONE   (20, 15, Item.bone, "Bone"),
-	IRON   (30, 12, Item.ingotIron, "Iron"),
-	QUARTZ (60, 12, Item.field_94583_ca, "Quartz"),
-	GOLD   (50, 20, Item.ingotGold, "Gold");
+	WOOD   (10, 14, Item.stick, "Wood"),
+	BONE   (15, 17, Item.bone, "Bone"),
+	IRON   (40, 15, Item.ingotIron, "Iron"),
+	QUARTZ (75, 10, Item.field_94583_ca, "Quartz"),
+	GOLD   (50, 22, Item.ingotGold, "Gold");
 	
 	private final int enchantability;
 	private final int maxCharges;
