@@ -1,12 +1,19 @@
 package hylinn.minecraft.ElementalWands.item;
 
+import java.util.Map;
+import java.util.Map.Entry;
+
 import hylinn.minecraft.ElementalWands.ElementalWands;
+import hylinn.minecraft.ElementalWands.enchantment.ICastable;
 import hylinn.minecraft.ElementalWands.event.WandCastEvent;
 import hylinn.minecraft.ElementalWands.event.WandChargeEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
@@ -17,8 +24,8 @@ import net.minecraftforge.common.MinecraftForge;
 
 public class ItemWand extends Item {
 	
-	private final EnumWandMaterial material;
-	private final EnumWandElement element;
+	public final EnumWandMaterial material;
+	public final EnumWandElement element;
 	private final int MAX_ITEM_USE_DURATION = 72000;
 	private final int NUM_OF_ANIMATION_ICONS = 3;
 	//private final String[] paths = new String[] {"bow_pull_0", "bow_pull_1", "bow_pull_2"};
@@ -62,35 +69,8 @@ public class ItemWand extends Item {
 //            f = 1.0F;
 //        }
 
-//        EntityArrow entityarrow = new EntityArrow(par2World, par3EntityPlayer, f * 2.0F);
-
-//        if (f == 1.0F)
-//        {
-//            entityarrow.setIsCritical(true);
-//        }
-
-//        int k = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, par1ItemStack);
-//
-//        if (k > 0)
-//        {
-//            entityarrow.setDamage(entityarrow.getDamage() + (double)k * 0.5D + 0.5D);
-//        }
-//
-//        int l = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, par1ItemStack);
-//
-//        if (l > 0)
-//        {
-//            entityarrow.setKnockbackStrength(l);
-//        }
-//
-//        if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, par1ItemStack) > 0)
-//        {
-//            entityarrow.setFire(100);
-//        }
+        itemStack.damageItem(this.castWandSpell(itemStack, world, player, charge), player);
         
-        //TODO Actually cast a wand's spell.
-
-        itemStack.damageItem(1, player); //TODO Change damage based upon charge time.
 //        world.playSoundAtEntity(player, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F); //TODO Create and use wand random wand sounds.
 	}
 	
@@ -153,5 +133,59 @@ public class ItemWand extends Item {
 	
 	public String getIconPath(int animation) {
 		return ElementalWands.modName + ":wand" + this.element.toString() + this.material.toString() + animation;
+	}
+	
+	private int castFireSpell(ItemStack stack, World world, EntityLiving entity, int charge) {
+		System.out.println("Fire Spell Cast");
+		return 1;
+	}
+	
+	private int castAirSpell(ItemStack stack, World world, EntityLiving entity, int charge) {
+		System.out.println("Air Spell Cast");
+		return 1;
+	}
+	
+	private int castWaterSpell(ItemStack stack, World world, EntityLiving entity, int charge) {
+		System.out.println("Water Spell Cast");
+		return 1;
+	}
+	
+	private int castEarthSpell(ItemStack stack, World world, EntityLiving entity, int charge) {
+		System.out.println("Earth Spell Cast");
+		return 1;
+	}
+	
+	private int castArcaneSpell(ItemStack stack, World world, EntityLiving entity, int charge) {
+		System.out.println("Arcane Spell Cast");
+		return 1;
+	}
+	
+	public int castWandSpell(ItemStack stack, World world, EntityLiving entity, int charge) {
+		@SuppressWarnings("unchecked")
+		Map<Short, Short> enchantments = EnchantmentHelper.getEnchantments(stack);
+		int returnDamage = 0;
+		        
+        if (enchantments.size() > 0) {
+        	for (Entry<Short, Short> enchantmentEntry : enchantments.entrySet()) {
+        		Enchantment enchantment = Enchantment.enchantmentsList[enchantmentEntry.getKey()];
+        		if (enchantment instanceof ICastable)
+        			returnDamage += ((ICastable) enchantment).cast(stack, world, entity, enchantmentEntry.getValue(), charge);
+        	}
+        }
+        else {
+        	switch(element) {
+        		case AIR:
+        			returnDamage = this.castAirSpell(stack, world, entity, charge);
+        		case WATER:
+        			returnDamage = this.castWaterSpell(stack, world, entity, charge);
+        		case EARTH:
+        			returnDamage = this.castEarthSpell(stack, world, entity, charge);
+        		case FIRE:
+        			returnDamage = this.castFireSpell(stack, world, entity, charge);
+        		case ARCANE:
+        			returnDamage = this.castArcaneSpell(stack, world, entity, charge);
+        	}
+        }
+        return returnDamage;
 	}
 }
