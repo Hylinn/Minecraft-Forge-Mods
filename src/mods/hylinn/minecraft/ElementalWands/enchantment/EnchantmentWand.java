@@ -5,13 +5,16 @@ import hylinn.minecraft.ElementalWands.item.EnumWandElement;
 import hylinn.minecraft.ElementalWands.item.ItemWand;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
-public class EnchantmentWand extends Enchantment {
+public class EnchantmentWand extends Enchantment implements ICastable{
 
 	public final EnumWandElement element;
-	protected final int MIN_LEVEL = 1;
-	protected final int MAX_LEVEL = 5;
+	protected int minLevel = 1;
+	protected int maxLevel = 5;
+	protected int castCost = 1;
 	
 	public EnchantmentWand(int id, int weight, EnumWandElement element) {
 		super(id, weight, ElementalWands.enchantmentWand);
@@ -31,10 +34,23 @@ public class EnchantmentWand extends Enchantment {
     }
 	
 	public int getMinLevel() {
-		return MIN_LEVEL;
+		return minLevel;
 	}
 
 	public int getMaxLevel() {
-		return MAX_LEVEL;
+		return maxLevel;
+	}
+	
+	public int getMinEnchantability(int level) {
+		return (int) Math.pow(3, level - 1);
+	}
+	
+	public int getMaxEnchantability(int level) {
+		return 50;
+	}
+	
+	public int cast(ItemStack stack, World world, EntityLiving entity, int level, int itemInUseDuration) {
+		System.out.println(this.getTranslatedName(level) + " cast after charging for " + itemInUseDuration);
+		return 0;
 	}
 }

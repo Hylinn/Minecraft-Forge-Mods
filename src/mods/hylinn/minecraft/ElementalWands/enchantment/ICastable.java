@@ -5,5 +5,5 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public interface ICastable {
-	public int cast(ItemStack stack, World world, EntityLiving entity, int level, int charge);
+	public int cast(ItemStack stack, World world, EntityLiving entity, int level, int itemInUseDuration);
 }
