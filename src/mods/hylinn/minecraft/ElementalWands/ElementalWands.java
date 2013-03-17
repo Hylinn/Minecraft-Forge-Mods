@@ -61,6 +61,7 @@ public class ElementalWands {
     public static ItemWand[] wands;
     private static final int wandStartId = 31000;
     public static final String modName = "ElementalWands";
+	public static final boolean DEBUG = true;
     private static final String languageDirectory = "resources/mods/" + modName + "/localization/";
     
     public static final EnumEnchantmentType enchantmentWand = EnumHelper.addEnchantmentType("wand");
