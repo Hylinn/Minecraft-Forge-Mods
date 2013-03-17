@@ -28,7 +28,6 @@ public class ItemWand extends Item {
 	public final EnumWandElement element;
 	private final int MAX_ITEM_USE_DURATION = 72000;
 	private final int NUM_OF_ANIMATION_ICONS = 3;
-	//private final String[] paths = new String[] {"bow_pull_0", "bow_pull_1", "bow_pull_2"};
 	
     @SideOnly(Side.CLIENT)
     private Icon[] animationIcons = new Icon[NUM_OF_ANIMATION_ICONS];
@@ -135,32 +134,32 @@ public class ItemWand extends Item {
 		return ElementalWands.modName + ":wand" + this.element.toString() + this.material.toString() + animation;
 	}
 	
-	private int castFireSpell(ItemStack stack, World world, EntityLiving entity, int charge) {
+	private int castFireSpell(ItemStack stack, World world, EntityLiving entity, int itemInUseDuration) {
 		System.out.println("Fire Spell Cast");
 		return 1;
 	}
 	
-	private int castAirSpell(ItemStack stack, World world, EntityLiving entity, int charge) {
+	private int castAirSpell(ItemStack stack, World world, EntityLiving entity, int itemInUseDuration) {
 		System.out.println("Air Spell Cast");
 		return 1;
 	}
 	
-	private int castWaterSpell(ItemStack stack, World world, EntityLiving entity, int charge) {
+	private int castWaterSpell(ItemStack stack, World world, EntityLiving entity, int itemInUseDuration) {
 		System.out.println("Water Spell Cast");
 		return 1;
 	}
 	
-	private int castEarthSpell(ItemStack stack, World world, EntityLiving entity, int charge) {
+	private int castEarthSpell(ItemStack stack, World world, EntityLiving entity, int itemInUseDuration) {
 		System.out.println("Earth Spell Cast");
 		return 1;
 	}
 	
-	private int castArcaneSpell(ItemStack stack, World world, EntityLiving entity, int charge) {
+	private int castArcaneSpell(ItemStack stack, World world, EntityLiving entity, int itemInUseDuration) {
 		System.out.println("Arcane Spell Cast");
 		return 1;
 	}
 	
-	public int castWandSpell(ItemStack stack, World world, EntityLiving entity, int charge) {
+	public int castWandSpell(ItemStack stack, World world, EntityLiving entity, int itemInUseDuration) {
 		@SuppressWarnings("unchecked")
 		Map<Integer, Integer> enchantments = EnchantmentHelper.getEnchantments(stack);
 		int returnDamage = 0;
@@ -169,25 +168,25 @@ public class ItemWand extends Item {
         	for (Entry<Integer, Integer> enchantmentEntry : enchantments.entrySet()) {
         		Enchantment enchantment = Enchantment.enchantmentsList[enchantmentEntry.getKey()];
         		if (enchantment instanceof ICastable)
-        			returnDamage += ((ICastable) enchantment).cast(stack, world, entity, enchantmentEntry.getValue(), charge);
+        			returnDamage += ((ICastable) enchantment).cast(stack, world, entity, enchantmentEntry.getValue(), itemInUseDuration);
         	}
         }
         else {
         	switch(element) {
         		case AIR:
-        			returnDamage = this.castAirSpell(stack, world, entity, charge);
+        			returnDamage = this.castAirSpell(stack, world, entity, itemInUseDuration);
         			break;
         		case WATER:
-        			returnDamage = this.castWaterSpell(stack, world, entity, charge);
+        			returnDamage = this.castWaterSpell(stack, world, entity, itemInUseDuration);
         			break;
         		case EARTH:
-        			returnDamage = this.castEarthSpell(stack, world, entity, charge);
+        			returnDamage = this.castEarthSpell(stack, world, entity, itemInUseDuration);
         			break;
         		case FIRE:
-        			returnDamage = this.castFireSpell(stack, world, entity, charge);
+        			returnDamage = this.castFireSpell(stack, world, entity, itemInUseDuration);
         			break;
         		case ARCANE:
-        			returnDamage = this.castArcaneSpell(stack, world, entity, charge);
+        			returnDamage = this.castArcaneSpell(stack, world, entity, itemInUseDuration);
         			break;
         	}
         }
