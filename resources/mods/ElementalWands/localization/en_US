@@ -1,0 +1,56 @@
+#Enchantment names
+enchantment.fireShield: 	 Fire Shield
+enchantment.fireball: 		 Fireball
+enchantment.flameWeapon: 	 Flame Weapon
+enchantment.fireWall: 		 Fire Wall
+enchantment.flameStep: 		 Flame Step
+enchantment.iceBolt: 		 Ice Bolt
+enchantment.swiftSwim: 		 Swift Swim
+enchantment.conjureWater: 	 Conjure Water
+enchantment.iceShield: 		 Ice Shield
+enchantment.summonSnowGolem: Summon Snow Golem
+enchantment.stoneSpikes: 	 Stone Spikes
+enchantment.detectOre: 		 Detect Ore
+enchantment.entangle: 		 Entangle
+enchantment.earthShield: 	 Earth Shield
+enchantment.burrow: 		 Burrow
+enchantment.gust: 			 Gust
+enchantment.airShield: 		 Air Shield
+enchantment.safeFall: 		 Safe Fall
+enchantment.vortex: 		 Vortex
+enchantment.lightning: 		 Lightning
+enchantment.light: 			 Light
+enchantment.toughness: 		 Toughness
+enchantment.arcaneShield: 	 Arcane Shield
+enchantment.dispel: 		 Dispel
+enchantment.magicMissile: 	 Magic Missile
+
+#Tab names
+itemGroup.wandTab: Wands
+
+#Wand names
+item.wandFireWood.name:    	Wood Fire Wand
+item.wandFireBone.name:    	Bone Fire Wand
+item.wandFireIron.name:    	Iron Fire Wand
+item.wandFireGold.name:    	Gold Fire Wand
+item.wandFireQuartz.name:  	Nether Quartz Fire Wand
+item.wandWaterWood.name:   	Wood Water Wand
+item.wandWaterBone.name:   	Bone Water Wand
+item.wandWaterIron.name:   	Iron Water Wand
+item.wandWaterGold.name:   	Gold Water Wand
+item.wandWaterQuartz.name: 	Nether Quartz Fire Wand
+item.wandEarthWood.name:   	Wood Earth Wand
+item.wandEarthBone.name:   	Bone Earth Wand
+item.wandEarthIron.name:   	Iron Earth Wand
+item.wandEarthGold.name:   	Gold Earth Wand
+item.wandEarthQuartz.name: 	Nether Quartz Earth Wand
+item.wandAirWood.name: 	    Wood Air Wand
+item.wandAirBone.name: 	   	Bone Air Wand
+item.wandAirIron.name: 	   	Iron Air Wand
+item.wandAirGold.name: 	   	Gold Air Wand
+item.wandAirQuartz.name:   	Nether Quartz Air Wand
+item.wandArcaneWood.name:  	Wood Arcane Wand
+item.wandArcaneBone.name:  	Bone Arcane Wand
+item.wandArcaneIron.name:  	Iron Arcane Wand
+item.wandArcaneGold.name:  	Gold Arcane Wand
+item.wandArcaneQuartz.name: Nether Quartz Arcane Wand
