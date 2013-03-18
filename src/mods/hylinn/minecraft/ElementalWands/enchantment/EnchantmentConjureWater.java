@@ -2,6 +2,7 @@ package hylinn.minecraft.ElementalWands.enchantment;
 
 import hylinn.minecraft.ElementalWands.ElementalWands;
 import hylinn.minecraft.ElementalWands.item.EnumWandElement;
+import hylinn.minecraft.ElementalWands.util.TargetHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,7 +26,7 @@ public class EnchantmentConjureWater extends EnchantmentWand {
 		if (ElementalWands.DEBUG) System.out.println(entity.getEntityName() + " cast " + this.getTranslatedName(level) + " after charging for " + seconds + " seconds");
 		
 		if (!world.isRemote) {
-			MovingObjectPosition target = this.getMovingObjectPositionFromEntity(world, entity, level * rangePerLevel, true);
+			MovingObjectPosition target = TargetHelper.getMovingObjectPositionFromEntity(world, entity, level * rangePerLevel, true);
 			
 			if (target != null) {
 				switch (target.sideHit) {
@@ -51,7 +52,7 @@ public class EnchantmentConjureWater extends EnchantmentWand {
 				conjureWater(world, seconds >= 1.0F ? (int) Math.min(3, (seconds + 1) / 2) : 0, target.blockX, target.blockY, target.blockZ);
 			}
 			else if (entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode) {
-				Vec3 targetAir = getPositionAtDistanceFromEntity(world, entity, level * rangePerLevel);
+				Vec3 targetAir = TargetHelper.getPositionAtDistanceFromEntity(world, entity, level * rangePerLevel);
 				conjureWater(world, seconds >= 1.0F ? (int) Math.min(3, (seconds + 1) / 2) : 0, (int) targetAir.xCoord, (int) targetAir.yCoord, (int) targetAir.zCoord);
 			}
 		}
