@@ -26,7 +26,7 @@ public class EnchantmentConjureWater extends EnchantmentWand {
 		if (ElementalWands.DEBUG) System.out.println(entity.getEntityName() + " cast " + this.getTranslatedName(level) + " after charging for " + seconds + " seconds");
 		
 		if (!world.isRemote) {
-			MovingObjectPosition target = TargetHelper.getMovingObjectPositionFromEntity(world, entity, level * rangePerLevel, true);
+			MovingObjectPosition target = TargetHelper.getMovingObjectPositionFromEntity(world, entity, level * rangePerLevel, false);
 			
 			if (target != null) {
 				switch (target.sideHit) {
