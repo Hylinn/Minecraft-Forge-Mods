@@ -7,10 +7,9 @@ import hylinn.minecraft.ElementalWands.ElementalWands;
 import hylinn.minecraft.ElementalWands.enchantment.ICastable;
 import hylinn.minecraft.ElementalWands.event.WandCastEvent;
 import hylinn.minecraft.ElementalWands.event.WandChargeEvent;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import hylinn.minecraft.ElementalWands.util.TargetHelper;
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLiving;
@@ -19,6 +18,7 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -28,6 +28,8 @@ public class ItemWand extends Item {
 	public final EnumWandElement element;
 	private final int MAX_ITEM_USE_DURATION = 72000;
 	private final int NUM_OF_ANIMATION_ICONS = 3;
+	private final int baseSpellCost = 1;
+	private final int minCastTime = 7; // in 1/20ths of a second;
 	
     private Icon[] animationIcons = new Icon[NUM_OF_ANIMATION_ICONS];
 	
@@ -44,18 +46,17 @@ public class ItemWand extends Item {
 	
 	public void onPlayerStoppedUsing(ItemStack itemStack, World world, EntityPlayer player, int itemInUseCount) {
 		
-		int charge = this.getMaxItemUseDuration(itemStack) - itemInUseCount;
+		int itemInUseDuration = this.getMaxItemUseDuration(itemStack) - itemInUseCount;
 
-        WandCastEvent event = new WandCastEvent(player, itemStack, charge);
+        WandCastEvent event = new WandCastEvent(player, itemStack, itemInUseDuration);
         MinecraftForge.EVENT_BUS.post(event);
         if (event.isCanceled())
             return;
         
-        charge = event.charge;
+        itemInUseDuration = event.charge;
 
-        itemStack.damageItem(this.castWandSpell(itemStack, world, player, charge), player);
-        
-//        world.playSoundAtEntity(player, "random.bow", 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F); //TODO Create and use wand random wand sounds.
+        if (player.capabilities.isCreativeMode || itemInUseDuration >= minCastTime)
+        	itemStack.damageItem(this.castWandSpell(itemStack, world, player, itemInUseDuration), player);
 	}
 	
 	public ItemStack onItemRightClick(ItemStack itemStack, World wWorld, EntityPlayer player) {
@@ -120,29 +121,67 @@ public class ItemWand extends Item {
 		return ElementalWands.modName + ":wand" + this.element.toString() + this.material.toString() + animation;
 	}
 	
-	private int castFireSpell(ItemStack stack, World world, EntityLiving entity, int itemInUseDuration) {
-		System.out.println("Fire Spell Cast");
-		return 1;
+	private int castFireSpell(ItemStack stack, World world, EntityLiving entity) {
+		
+		return baseSpellCost;
 	}
 	
-	private int castAirSpell(ItemStack stack, World world, EntityLiving entity, int itemInUseDuration) {
-		System.out.println("Air Spell Cast");
-		return 1;
+	private int castAirSpell(ItemStack stack, World world, EntityLiving entity) {
+		
+		return baseSpellCost;
 	}
 	
-	private int castWaterSpell(ItemStack stack, World world, EntityLiving entity, int itemInUseDuration) {
-		System.out.println("Water Spell Cast");
-		return 1;
+	private int castWaterSpell(ItemStack stack, World world, EntityLiving entity) {
+		MovingObjectPosition target = TargetHelper.getMovingObjectPositionFromEntity(world, entity, 5, true);
+		
+		if (target != null) {
+			int blockID = world.getBlockId(target.blockX, target.blockY, target.blockZ);
+			if (blockID == Block.waterStill.blockID || blockID == Block.waterMoving.blockID) {
+				world.setBlockAndMetadataWithNotify(target.blockX, target.blockY, target.blockZ, Block.ice.blockID, 0, 3);
+				return baseSpellCost;
+			}
+			else if (blockID == Block.lavaStill.blockID || blockID == Block.lavaMoving.blockID) {
+				world.setBlockAndMetadataWithNotify(target.blockX, target.blockY, target.blockZ, Block.cobblestone.blockID, 0, 3);
+				return baseSpellCost;
+			}
+			else if (blockID == Block.snow.blockID && world.getBlockMetadata(target.blockX, target.blockY, target.blockZ) < 6) {
+				int metadata = world.getBlockMetadata(target.blockX, target.blockY, target.blockZ);
+				world.setBlockMetadataWithNotify(target.blockX, target.blockY, target.blockZ, metadata + 1, 3);
+				return baseSpellCost;
+			}
+			else if (blockID == Block.snow.blockID) {
+				world.setBlockAndMetadataWithNotify(target.blockX, target.blockY, target.blockZ, Block.blockSnow.blockID, 0, 3);
+				return baseSpellCost;
+			}
+			else if (world.isAirBlock(target.blockX, target.blockY + 1, target.blockZ) && Block.blocksList[blockID].isOpaqueCube()){
+				world.setBlockAndMetadataWithNotify(target.blockX, target.blockY + 1, target.blockZ, Block.snow.blockID, 0, 3);
+				return baseSpellCost;
+			}
+		}
+		return 0;
 	}
 	
-	private int castEarthSpell(ItemStack stack, World world, EntityLiving entity, int itemInUseDuration) {
-		System.out.println("Earth Spell Cast");
-		return 1;
+	private int castEarthSpell(ItemStack stack, World world, EntityLiving entity) {
+		MovingObjectPosition target = TargetHelper.getMovingObjectPositionFromEntity(world, entity, 5, false);
+		
+		if (target != null && world.getBlockId(target.blockX, target.blockY, target.blockZ) == Block.dirt.blockID) {
+			world.setBlockAndMetadataWithNotify(target.blockX, target.blockY, target.blockZ, Block.grass.blockID, 0, 3);
+			return baseSpellCost;
+		}
+		return 0;
 	}
 	
-	private int castArcaneSpell(ItemStack stack, World world, EntityLiving entity, int itemInUseDuration) {
-		System.out.println("Arcane Spell Cast");
-		return 1;
+	private int castArcaneSpell(ItemStack stack, World world, EntityLiving entity) {
+		MovingObjectPosition target = TargetHelper.getMovingObjectPositionFromEntity(world, entity, 5, false);
+		
+		if (target != null) {
+			int metadata = Block.torchWood.onBlockPlaced(world, target.blockX, target.blockY, target.blockZ, target.sideHit, 0, 0, 0, 0);
+			if (metadata != 0) {
+				//world.setBlockAndMetadataWithNotify(target.blockX, target.blockY, target.blockZ, Block.torchWood.blockID, metadata, 3);
+				return baseSpellCost;
+			}
+		}
+		return 0;
 	}
 	
 	public int castWandSpell(ItemStack stack, World world, EntityLiving entity, int itemInUseDuration) {
@@ -160,19 +199,19 @@ public class ItemWand extends Item {
         else {
         	switch(element) {
         		case AIR:
-        			returnDamage = this.castAirSpell(stack, world, entity, itemInUseDuration);
+        			returnDamage = this.castAirSpell(stack, world, entity);
         			break;
         		case WATER:
-        			returnDamage = this.castWaterSpell(stack, world, entity, itemInUseDuration);
+        			returnDamage = this.castWaterSpell(stack, world, entity);
         			break;
         		case EARTH:
-        			returnDamage = this.castEarthSpell(stack, world, entity, itemInUseDuration);
+        			returnDamage = this.castEarthSpell(stack, world, entity);
         			break;
         		case FIRE:
-        			returnDamage = this.castFireSpell(stack, world, entity, itemInUseDuration);
+        			returnDamage = this.castFireSpell(stack, world, entity);
         			break;
         		case ARCANE:
-        			returnDamage = this.castArcaneSpell(stack, world, entity, itemInUseDuration);
+        			returnDamage = this.castArcaneSpell(stack, world, entity);
         			break;
         	}
         }
