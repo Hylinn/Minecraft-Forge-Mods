@@ -28,13 +28,13 @@ public class TargetHelper {
 		return distanceFromEntity;
 	}
 	
-	public static MovingObjectPosition getMovingObjectPositionFromEntity(World world, Entity entity, double distance, boolean onlyCollidable) {
+	public static MovingObjectPosition getMovingObjectPositionFromEntity(World world, Entity entity, double distance, boolean flag) {
         double entityX = entity.prevPosX + (entity.posX - entity.prevPosX);
         double entityY = entity.prevPosY + (entity.posY - entity.prevPosY) + (( double)entity.height * 0.9D) - (double)entity.yOffset;
         double entityZ = entity.prevPosZ + (entity.posZ - entity.prevPosZ);
         
         Vec3 entityLocation = world.getWorldVec3Pool().getVecFromPool(entityX, entityY, entityZ);      
         Vec3 distanceFromEntity = getPositionAtDistanceFromEntity(world, entity, distance);
-        return world.rayTraceBlocks_do_do(entityLocation, distanceFromEntity, !onlyCollidable, onlyCollidable);
+        return world.rayTraceBlocks_do(entityLocation, distanceFromEntity, flag);
     }
 }
