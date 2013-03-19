@@ -15,9 +15,9 @@ public class EntityEnchantmentFireball extends EntityFireball {
 	protected final int level;
 	protected final float seconds;
 	public Entity shootingEntity;
-	private int directDamageModifier = 2;
-	private int fireDurationModifier = 2;
-	private float powerModifier = 2;
+	private int directDamageModifier = 3;
+	private int fireDurationModifier = 3;
+	private float powerModifier = 3;
 	private final DamageSource source;
 	
 	public EntityEnchantmentFireball(World world, Entity entity, int level, int itemInUseDuration) {
@@ -26,8 +26,6 @@ public class EntityEnchantmentFireball extends EntityFireball {
 		this.level = level;
 		this.shootingEntity = entity;
 		this.source = DamageSource.causeFireballDamage(this, this.shootingEntity);
-		
-		this.setSize(0.3125F, 0.3125F);
 	}
 
 	@Override
@@ -40,11 +38,15 @@ public class EntityEnchantmentFireball extends EntityFireball {
         	int directDamage = directDamageModifier * level;
         	int fireDuration = fireDurationModifier * level;
         	
-			if (target.entityHit != null && !target.entityHit.isImmuneToFire() && target.entityHit.attackEntityFrom(source, directDamage))
-				target.entityHit.setFire(fireDuration);
-  
-            this.newExplosion(this, this.posX, this.posY, this.posZ, explosionRadius, explosionPower);
-            this.setDead();
+        	if (target.entityHit != null && target.entityHit != shootingEntity) {
+        		if (!target.entityHit.isImmuneToFire() && target.entityHit.attackEntityFrom(source, directDamage))
+        			target.entityHit.setFire(fireDuration);
+        		this.newExplosion(this, this.posX, this.posY, this.posZ, explosionRadius, explosionPower);
+                this.setDead();
+        	}
+        	else if (target.entityHit != this.shootingEntity)
+        		this.newExplosion(this, this.posX, this.posY, this.posZ, explosionRadius, explosionPower);
+        		this.setDead();
         }
     }
 	

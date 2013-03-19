@@ -23,7 +23,6 @@ public class ExplosionFireball extends Explosion {
 	private final World world;
 	private int field_77289_h = 16;
 	private final double fallOffRate = 0.5D;
-    private Random explosionRNG = new Random();
     public float radius;
     public float power;
 
@@ -97,48 +96,48 @@ public class ExplosionFireball extends Explosion {
         }
 
         this.affectedBlockPositions.addAll(hashset);
-        i = MathHelper.floor_double(this.explosionX - (double)this.explosionSize - 1.0D);
-        j = MathHelper.floor_double(this.explosionX + (double)this.explosionSize + 1.0D);
-        k = MathHelper.floor_double(this.explosionY - (double)this.explosionSize - 1.0D);
-        int l1 = MathHelper.floor_double(this.explosionY + (double)this.explosionSize + 1.0D);
-        int i2 = MathHelper.floor_double(this.explosionZ - (double)this.explosionSize - 1.0D);
-        int j2 = MathHelper.floor_double(this.explosionZ + (double)this.explosionSize + 1.0D);
+        i = MathHelper.floor_double(this.explosionX - (double)this.radius - 1.0D);
+        j = MathHelper.floor_double(this.explosionX + (double)this.radius + 1.0D);
+        k = MathHelper.floor_double(this.explosionY - (double)this.radius - 1.0D);
+        int l1 = MathHelper.floor_double(this.explosionY + (double)this.radius + 1.0D);
+        int i2 = MathHelper.floor_double(this.explosionZ - (double)this.radius - 1.0D);
+        int j2 = MathHelper.floor_double(this.explosionZ + (double)this.radius + 1.0D);
         List list = this.world.getEntitiesWithinAABBExcludingEntity(this.exploder, AxisAlignedBB.getAABBPool().getAABB((double)i, (double)k, (double)i2, (double)j, (double)l1, (double)j2));
         Vec3 vec3 = this.world.getWorldVec3Pool().getVecFromPool(this.explosionX, this.explosionY, this.explosionZ);
 
-        for (int k2 = 0; k2 < list.size(); ++k2)
-        {
-            Entity entity = (Entity)list.get(k2);
-            double distanceDamageModifier = fallOffRate * (entity.getDistance(this.explosionX, this.explosionY, this.explosionZ) / (double)this.radius);
+		for (int k2 = 0; k2 < list.size(); ++k2) {
+			
+			Entity entity = (Entity) list.get(k2);
+			double distanceDamageModifier = fallOffRate * (entity.getDistance(this.explosionX, this.explosionY, this.explosionZ) / (double) this.radius);
+			
+			//System.out.println(entity.getEntityName() + entity.entityId + " " + entity.chunkCoordX + ", " + entity.chunkCoordY + ", " + entity.chunkCoordZ);
+			//System.out.println(entity.getEntityName() + entity.entityId + " " + entity.getDistance(this.explosionX, this.explosionY, this.explosionZ));
+			
+			if (distanceDamageModifier <= 1.0D && !entity.isImmuneToFire()) {
+				d0 = entity.posX - this.explosionX;
+				d1 = entity.posY + (double) entity.getEyeHeight() - this.explosionY;
+				d2 = entity.posZ - this.explosionZ;
+				double d8 = (double) MathHelper.sqrt_double(d0 * d0 + d1 * d1 + d2 * d2);
 
-            if (distanceDamageModifier <= fallOffRate)
-            {
-                d0 = entity.posX - this.explosionX;
-                d1 = entity.posY + (double)entity.getEyeHeight() - this.explosionY;
-                d2 = entity.posZ - this.explosionZ;
-                double d8 = (double)MathHelper.sqrt_double(d0 * d0 + d1 * d1 + d2 * d2);
+				if (d8 != 0.0D) {
+					d0 /= d8;
+					d1 /= d8;
+					d2 /= d8;
+					
+					double cover = (double) this.world.getBlockDensity(vec3, entity.boundingBox);
+					double reductionCoefficient = (1.0D - distanceDamageModifier) * cover;
+					int reducedDamage = EnchantmentProtection.func_92093_a(entity, (int) (this.power - (this.power * reductionCoefficient)));
+					
+					//System.out.println(entity.getEntityName()+ entity.entityId + " " + (int) (this.power - (this.power * reductionCoefficient)) + " " + reductionCoefficient);
+					
+					entity.attackEntityFrom(DamageSource.func_94539_a(this), reducedDamage);
+					entity.setFire((int) (this.power - (this.power * reductionCoefficient)));
 
-                if (d8 != 0.0D)
-                {
-                    d0 /= d8;
-                    d1 /= d8;
-                    d2 /= d8;
-                    double cover = (double)this.world.getBlockDensity(vec3, entity.boundingBox);
-                    double reductionCoefficient = (fallOffRate - distanceDamageModifier) * cover;
-                    //double d10 = EnchantmentProtection.func_92092_a(entity, (1.0D - d7) * d9); // Blast protection
-                    //double d10 = EnchantmentProtection.func_92093_a(entity, (1.0D - d7) * d9); // Fire protection
-                    System.out.println(entity.getEntityName() + " " + (int)(this.power - (this.power * reductionCoefficient)) + " " + reductionCoefficient);
-                    entity.attackEntityFrom(DamageSource.func_94539_a(this), (int)(this.power - (this.power * reductionCoefficient)));
-                    entity.setFire((int)(this.power - (this.power * reductionCoefficient)));
-                    
-
-                    if (entity instanceof EntityPlayer)
-                    {
-                        this.field_77288_k.put((EntityPlayer)entity, this.world.getWorldVec3Pool().getVecFromPool(d0 * reductionCoefficient, d1 * reductionCoefficient, d2 * reductionCoefficient));
-                    }
-                }
-            }
-        }
+					if (entity instanceof EntityPlayer) {
+						this.field_77288_k.put((EntityPlayer) entity, this.world.getWorldVec3Pool().getVecFromPool(d0 * reductionCoefficient, d1 * reductionCoefficient, d2 * reductionCoefficient));
+					}
+				}
+			}
+		}
     }
-
 }
