@@ -122,8 +122,14 @@ public class ItemWand extends Item {
 	}
 	
 	private int castFireSpell(ItemStack stack, World world, EntityLiving entity) {
+		MovingObjectPosition target = TargetHelper.getMovingObjectPositionFromEntity(world, entity, 5, true);
 		
-		return baseSpellCost;
+		if (target != null && entity instanceof EntityPlayer) {
+			// TODO Not use Flint and Steel's on use function to set blocks on fire.
+			Item.itemsList[Item.flintAndSteel.itemID].onItemUse(new ItemStack(0, 0, 0), (EntityPlayer) entity, world, target.blockX, target.blockY, target.blockZ, target.sideHit, 0F, 0F, 0F);
+			return baseSpellCost;
+		}
+		return 0;
 	}
 	
 	private int castAirSpell(ItemStack stack, World world, EntityLiving entity) {
