@@ -59,8 +59,7 @@ public class EnchantmentConjureWater extends EnchantmentWand {
 		return getCastChargeCost(itemInUseDuration);
 	}
 
-	private void conjureWater(World world, int castStage, int centerX, int centerY, int centerZ) {
-		
+	private void conjureWater(World world, int castStage, int centerX, int centerY, int centerZ) {	
 		if (world.provider.isHellWorld) {
 			world.playSoundEffect(centerX + 0.5D, centerY + 0.5D, centerZ + 0.5D, "random.fizz", 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);
 
