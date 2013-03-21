@@ -4,6 +4,7 @@ import java.util.Random;
 
 import hylinn.minecraft.ElementalWands.ElementalWands;
 import hylinn.minecraft.ElementalWands.item.EnumWandElement;
+import hylinn.minecraft.ElementalWands.util.RandomName;
 import hylinn.minecraft.ElementalWands.util.TargetHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLiving;
@@ -79,6 +80,7 @@ public class EnchantmentSummonSnowGolem extends EnchantmentWand {
 				newZ = centerZ;
 			}
 			snowGolem.setPosition(newX, newY, newZ);
+			snowGolem.func_94058_c(RandomName.nextName());
 			world.spawnEntityInWorld(snowGolem);
 		}
 	}
