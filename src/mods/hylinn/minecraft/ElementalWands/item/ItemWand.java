@@ -28,7 +28,7 @@ public class ItemWand extends Item {
 	public final EnumWandElement element;
 	private final int MAX_ITEM_USE_DURATION = 72000;
 	private final int NUM_OF_ANIMATION_ICONS = 3;
-	private final int baseSpellCost = 1;
+	private final int baseSpellCost = 0;
 	private final int minCastTime = 7; // in 1/20ths of a second;
 	
     private Icon[] animationIcons = new Icon[NUM_OF_ANIMATION_ICONS];
@@ -181,11 +181,7 @@ public class ItemWand extends Item {
 		MovingObjectPosition target = TargetHelper.getMovingObjectPositionFromEntity(world, entity, 5, false);
 		
 		if (target != null) {
-			int metadata = Block.torchWood.onBlockPlaced(world, target.blockX, target.blockY, target.blockZ, target.sideHit, 0, 0, 0, 0);
-			if (metadata != 0) {
-				//world.setBlockAndMetadataWithNotify(target.blockX, target.blockY, target.blockZ, Block.torchWood.blockID, metadata, 3);
-				return baseSpellCost;
-			}
+			
 		}
 		return 0;
 	}
