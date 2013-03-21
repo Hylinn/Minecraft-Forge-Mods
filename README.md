@@ -89,6 +89,8 @@ Elemental Wands adds wands for the five elements (Fire, Earth, Air, Water, and A
   
   There is also a one second cooldown after a spell is cast before another spell can start. This cooldown is removed when in creative mode.
   
+  Spells can be one of two target types, self and ranged. Self targeted spells apply their effect to the caster and typically apply their effect to nearby allies when charged. Ranged target spells target a location in the distance and usually increase their area of effect when charged.
+  
   ####Air
   #####Gust
   #####Lightning
@@ -111,6 +113,7 @@ Elemental Wands adds wands for the five elements (Fire, Earth, Air, Water, and A
   #####Fireball
   A fireball shoots forth from the caster towards the target. Upon impact the fireball does a large amount of damage to the entity it hit as well as igniting the target. It also releases a blast of fire doing damage to other surrounding entities and igniting them.
   
+  *Target Type* - Ranged  
   *Charge Effect* - The blast radius increases the longer the spell is charged. It ranges from no radius when uncharged to four blocks when charged.  
   *Level Effect* - The amount of damage and the duration of ignition increases with each level of the spell. It ranges from a maximum of 3 damage at level 1 to 15 at level 5.  
   #####Fire Shield
