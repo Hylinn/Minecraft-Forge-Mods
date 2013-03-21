@@ -87,7 +87,7 @@ Elemental Wands adds wands for the five elements (Fire, Earth, Air, Water, and A
   
   When casting a spell, it is possible to charge it up in a similar manner to using a bow. Each spell handles the effect of charging differently. Charging a spell also causes the spell to damage the wand more than an uncharged spell up to a maximum of 8 damage.
   
-  There is also a one second cooldown after a spell is cast before another spell can start.
+  There is also a one second cooldown after a spell is cast before another spell can start. This cooldown is removed when in creative mode.
   
   ####Air
   #####Gust
