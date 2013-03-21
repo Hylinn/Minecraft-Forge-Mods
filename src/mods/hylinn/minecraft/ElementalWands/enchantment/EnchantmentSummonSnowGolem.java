@@ -81,6 +81,7 @@ public class EnchantmentSummonSnowGolem extends EnchantmentWand {
 			}
 			snowGolem.setPosition(newX, newY, newZ);
 			snowGolem.func_94058_c(RandomName.nextName());
+			snowGolem.func_94061_f(true);
 			world.spawnEntityInWorld(snowGolem);
 		}
 	}
