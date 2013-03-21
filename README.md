@@ -57,8 +57,8 @@ Elemental Wands adds wands for the five elements (Fire, Earth, Air, Water, and A
 
   ####Air
   *Elemental Material* - Ender pearl  
-  *Base Spell (Wind Jump)* - Propels the caster forward as though they performed a sprinting jump. Can be used while stationary and when low hunger would not permit running. The movement caused by casting Wind Jump does not consume hunger. 
-  *Spells* - <a href="#air-shield">Air Shield</a>, <a href="#gust">Gust</a>, <a href="#lightning">Lightning</a>, <a href="#safe-fall">Safe Fall</a>, <a href="#vortex">Vortex</a>
+  *Base Spell (Wind Jump)* - Propels the caster forward as though they performed a sprinting jump. Can be used while stationary and when low hunger would not permit running. The movement caused by casting Wind Jump does not consume hunger.   
+  *Spells* - <a href="#gust">Gust</a>, <a href="#lightning">Lightning</a>, <a href="#safe-fall">Safe Fall</a>, <a href="#vortex">Vortex</a>, <a href="#wind-shield">Wind Shield</a>
   
   ####Arcane
   *Elemental Material* - Glowstone dust   
@@ -67,7 +67,7 @@ Elemental Wands adds wands for the five elements (Fire, Earth, Air, Water, and A
   
   ####Earth
   *Elemental Material* - Emerald  
-  *Base Spell (Move Earth)* - Casting will pull the target block towards in the direction of the targeted face one block. This spell can only be used on dirt, grass, netherrack, sand, and slow sand.    
+  *Base Spell (Move Earth)* - Casting will pull the target block towards the direction of the targeted face a distance of one block. This spell can only be used on dirt, grass, gravel, netherrack, sand, and soul sand.    
   *Spells* - <a href="#burrow">Burrow</a>, <a href="#detect-ore">Detect Ore</a>, <a href="#earth-shield">Earth Shield</a>, <a href="#entangle">Entangle</a>, <a href="#stone-spike">Stone Spike</a>
   
   ####Fire
@@ -77,16 +77,16 @@ Elemental Wands adds wands for the five elements (Fire, Earth, Air, Water, and A
   
   ####Water
   *Elemental Material* - Ghast tear  
-  *Base Spell (Freeze)* - When cast on still water will turn it into ice. Casting Freeze on still lava will turn it into cobblestone. Casting the spell on any other target block will cover it will a layer of snow.  
+  *Base Spell (Freeze)* - When cast on still water will turn it into ice. Casting Freeze on still lava will turn it into obsidian. Casting the spell on any other target block will cover it will a layer of snow.  
   *Spells* - <a href="#conjure-water">Conjure Water</a>, <a href="#ice-bolt">Ice Bolt</a>, <a href="#ice-shield">Ice Shield</a>, <a href="#summon-snow-golem">Summon Snow Golem</a>, <a href="#swift-swim">Swift Swim</a>
   
   ###Spells
   ####Air
-  #####Air Shield
   #####Gust
   #####Lightning
   #####Safe Fall
   #####Vortex
+  #####Wind Shield
   ####Arcane
   #####Arcane Shield
   #####Dispel
