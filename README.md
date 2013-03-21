@@ -21,7 +21,7 @@ The following are all of the mods contained in this repository.
   * <a href="#water-1">Water</a>
 
   ###Description
-Elemental Wands adds wands for the five elements (Fire, Earth, Air, Water, and Arcane). Each wand can be made out of one of the five materials (Wood, Bone, Iron, Nether Quartz, and Gold) and can be enchanted with spells at any enchanting table.
+Elemental Wands adds wands for the five elements (Fire, Earth, Air, Water, and Arcane). Each wand can be made out of one of five materials (Wood, Bone, Iron, Nether Quartz, and Gold) and can be enchanted with spells at any enchanting table.
 
   ###Recipes
   Each recipe requires two of the base material and one of the elemental material to be made.
@@ -37,7 +37,7 @@ Elemental Wands adds wands for the five elements (Fire, Earth, Air, Water, and A
   Charges - ?
   * *Bone*  
   Enchantability - ?  
-  harges - ?
+  Charges - ?
   * *Iron*  
   Enchantability - ?  
   Charges - ?
@@ -81,6 +81,15 @@ Elemental Wands adds wands for the five elements (Fire, Earth, Air, Water, and A
   *Spells* - <a href="#conjure-water">Conjure Water</a>, <a href="#ice-bolt">Ice Bolt</a>, <a href="#ice-shield">Ice Shield</a>, <a href="#summon-snow-golem">Summon Snow Golem</a>, <a href="#swift-swim">Swift Swim</a>
   
   ###Spells
+  Spells can be applied to the wands at any enchanting table. Only spells of the wand's element can be enchanted on it and only one spell can exist on a wand at a time. 
+  
+  Unless otherwise noted, each spell has a max level of 5 and weight of 3. The only way to obtain the level 5 version of a spell is by combining two level 4 version at an anvil.
+  
+  When casting a spell, it is possible to charge it up in a similar manner to using a bow. Each spell handles the effect of charging differently. Charging a spell also causes the spell to damage the wand more than an uncharged spell.  
+  The cost is calculate by the following: ``max(2^seconds, 8)``
+  
+  There is also a one second cooldown after a spell is cast before another spell can start.
+  
   ####Air
   #####Gust
   #####Lightning
@@ -101,6 +110,10 @@ Elemental Wands adds wands for the five elements (Fire, Earth, Air, Water, and A
   #####Stone Spikes
   ####Fire
   #####Fireball
+  A fireball shoots forth from the cast towards the target. Upon impact the fireball does a large amount of damage to the entity it hit as well as igniting the target. It also releases a blast of fire doing damage to other surround entities and also igniting them.
+  
+  *Charge Effect* - The blast radius increases the longer the spell is charged. It ranges from no radius when uncharged to four blocks when charged.  
+  *Level Effect* - The amount of damage and the duration of ignition increases with each level of the spell. It ranges from a maximum of 3 damage at level 1 to 15 at level 5.  
   #####Fire Shield
   #####Fire Wall
   #####Flame Step
