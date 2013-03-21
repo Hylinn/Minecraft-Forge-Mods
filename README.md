@@ -110,7 +110,7 @@ Elemental Wands adds wands for the five elements (Fire, Earth, Air, Water, and A
   #####Stone Spikes
   ####Fire
   #####Fireball
-  A fireball shoots forth from the cast towards the target. Upon impact the fireball does a large amount of damage to the entity it hit as well as igniting the target. It also releases a blast of fire doing damage to other surround entities and also igniting them.
+  A fireball shoots forth from the caster towards the target. Upon impact the fireball does a large amount of damage to the entity it hit as well as igniting the target. It also releases a blast of fire doing damage to other surrounding entities and igniting them.
   
   *Charge Effect* - The blast radius increases the longer the spell is charged. It ranges from no radius when uncharged to four blocks when charged.  
   *Level Effect* - The amount of damage and the duration of ignition increases with each level of the spell. It ranges from a maximum of 3 damage at level 1 to 15 at level 5.  
