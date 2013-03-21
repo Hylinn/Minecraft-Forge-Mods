@@ -57,7 +57,7 @@ Elemental Wands adds wands for the five elements (Fire, Earth, Air, Water, and A
 
   ####Air
   *Elemental Material* - Ender pearl  
-  *Base Spell (Wind Jump)* - Propels the caster forward as though the performed a sprinting jump. Can be used while stationary.  
+  *Base Spell (Wind Jump)* - Propels the caster forward as though they performed a sprinting jump. Can be used while stationary and when low hunger would not permit running. The movement caused by casting Wind Jump does not consume hunger. 
   *Spells* - <a href="#air-shield">Air Shield</a>, <a href="#gust">Gust</a>, <a href="#lightning">Lightning</a>, <a href="#safe-fall">Safe Fall</a>, <a href="#vortex">Vortex</a>
   
   ####Arcane
