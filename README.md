@@ -21,7 +21,7 @@ The following are all of the mods contained in this repository.
   * <a href="#water-1">Water</a>
 
   ###Description
-Elemental Wands adds wands for each of the five elements (Fire, Earth, Air, Wather, and Arcane). Each wand can be mabe out of one of the fove materials (Wood, Bone, Iron, Nether Quartz, and Gold) and can be enchanted with spells at any enchanting table.
+Elemental Wands adds wands for each of the five elements (Fire, Earth, Air, Wather, and Arcane). Each wand can be made out of one of the five materials (Wood, Bone, Iron, Nether Quartz, and Gold) and can be enchanted with spells at any enchanting table.
 
   ###Recipes
   Each recipe requires two of the base material and one of the elemental material to be made.
