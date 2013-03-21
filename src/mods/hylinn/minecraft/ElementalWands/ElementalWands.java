@@ -11,6 +11,7 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.item.EnumAction;
 import net.minecraftforge.common.EnumHelper;
+import hylinn.minecraft.ElementalWands.client.ClientProxy;
 import hylinn.minecraft.ElementalWands.creativetab.CreativeTabWand;
 import hylinn.minecraft.ElementalWands.enchantment.EnchantmentAirShield;
 import hylinn.minecraft.ElementalWands.enchantment.EnchantmentArcaneShield;
@@ -41,7 +42,6 @@ import hylinn.minecraft.ElementalWands.item.EnumWandElement;
 import hylinn.minecraft.ElementalWands.item.EnumWandMaterial;
 import hylinn.minecraft.ElementalWands.item.ItemWand;
 import hylinn.minecraft.ElementalWands.item.crafting.RecipesWand;
-import hylinn.minecraft.ElementalWands.proxy.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -102,8 +102,8 @@ public class ElementalWands {
     @Instance("ElementalWands")
     public static ElementalWands instance;
    
-    @SidedProxy(clientSide="hylinn.minecraft.ElementalWands.proxy.ClientProxy", serverSide="hylinn.minecraft.ElementalWands.proxy.CommonProxy")
-    public static CommonProxy proxy;
+    @SidedProxy(clientSide="hylinn.minecraft.ElementalWands.client.ClientProxy", serverSide="hylinn.minecraft.ElementalWands.client.CommonProxy")
+    public static ClientProxy proxy = new ClientProxy();
    
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
@@ -129,7 +129,7 @@ public class ElementalWands {
 				e.printStackTrace();
 			}
     		LanguageRegistry.instance().addStringLocalization(language, languagePacks[i].getName());
-    	}	
+    	}
     }
    
     @Init
@@ -148,7 +148,7 @@ public class ElementalWands {
     	// Add recipes for the wands.
     	RecipesWand.addRecipes();
     	
-        //proxy.registerRenderers();
+        proxy.load();
     }
    
     @PostInit
