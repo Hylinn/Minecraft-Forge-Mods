@@ -85,8 +85,7 @@ Elemental Wands adds wands for the five elements (Fire, Earth, Air, Water, and A
   
   Unless otherwise noted, each spell has a max level of 5 and weight of 3. The only way to obtain the level 5 version of a spell is by combining two level 4 version at an anvil.
   
-  When casting a spell, it is possible to charge it up in a similar manner to using a bow. Each spell handles the effect of charging differently. Charging a spell also causes the spell to damage the wand more than an uncharged spell.  
-  The cost is calculate by the following: ``max(2^seconds, 8)``
+  When casting a spell, it is possible to charge it up in a similar manner to using a bow. Each spell handles the effect of charging differently. Charging a spell also causes the spell to damage the wand more than an uncharged spell up to a maximum of 8 damage.
   
   There is also a one second cooldown after a spell is cast before another spell can start.
   
