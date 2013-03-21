@@ -83,7 +83,7 @@ Elemental Wands adds wands for the five elements (Fire, Earth, Air, Water, and A
   ###Spells
   Spells can be applied to the wands at any enchanting table. Only spells of the wand's element can be enchanted on it and only one spell can exist on a wand at a time. 
   
-  Unless otherwise noted, each spell has a max level of 5 and weight of 3. The only way to obtain the level 5 version of a spell is by combining two level 4 version at an anvil.
+  Spells can be level 1 to 5 (i.e. Fireball IV) similar to other enchants. They also have a weight of 3 when determining repair cost and the enchanting table enchantment list. The only way to obtain the level 5 version of a spell is by combining two level 4 versions at an anvil.
   
   When casting a spell, it is possible to charge it up in a similar manner to using a bow. Each spell handles the effect of charging differently. Charging a spell also causes the spell to damage the wand more than an uncharged spell up to a maximum of 8 damage.
   
