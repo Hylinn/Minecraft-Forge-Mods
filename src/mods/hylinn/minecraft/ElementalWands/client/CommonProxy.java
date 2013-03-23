@@ -1,9 +1,12 @@
 package hylinn.minecraft.ElementalWands.client;
 
+import hylinn.minecraft.ElementalWands.server.WorldTickHandler;
+import cpw.mods.fml.common.registry.TickRegistry;
+import cpw.mods.fml.relauncher.Side;
+
 public class CommonProxy {
-    //public static String ITEMS_PNG = "/tutorial/generic/items.png";
-    //public static String BLOCK_PNG = "/tutorial/generic/block.png";
    
-    // Client stuff
-    public void load() {}
+    public void load() {
+    	TickRegistry.registerTickHandler(new WorldTickHandler(), Side.SERVER);
+    }
 }

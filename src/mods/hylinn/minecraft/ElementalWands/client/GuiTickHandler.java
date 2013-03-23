@@ -13,13 +13,12 @@ import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;
 
-public class ElementalWandsTickHandler implements ITickHandler {
+public class GuiTickHandler implements ITickHandler {
 
 	private Minecraft minecraft;
     private final EnumSet tickTypes;
-
 	
-	public ElementalWandsTickHandler() {
+	public GuiTickHandler() {
 		
 		minecraft = FMLClientHandler.instance().getClient();
 		tickTypes = EnumSet.of(TickType.CLIENT);
@@ -39,10 +38,10 @@ public class ElementalWandsTickHandler implements ITickHandler {
 		// TODO Auto-generated method stub
 		// Inject InvetoryGUI
 		if (minecraft.currentScreen instanceof GuiInventory) {
-			minecraft.displayGuiScreen(new ElementalWandsGuiInventory(minecraft.thePlayer));
+			//minecraft.displayGuiScreen(new ElementalWandsGuiInventory(minecraft.thePlayer));
 		}
 		else if (minecraft.currentScreen instanceof GuiContainerCreative) {
-			minecraft.displayGuiScreen(new ElementalWandsGuiContainerCreative(minecraft.thePlayer));
+			//minecraft.displayGuiScreen(new ElementalWandsGuiContainerCreative(minecraft.thePlayer));
 		}
 	}
 

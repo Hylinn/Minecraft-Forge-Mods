@@ -7,6 +7,6 @@ public class ClientProxy extends CommonProxy {
        
     @Override
     public void load() {
-    	TickRegistry.registerTickHandler(new ElementalWandsTickHandler(), Side.CLIENT);
+    	TickRegistry.registerTickHandler(new GuiTickHandler(), Side.CLIENT);
     }
 }
