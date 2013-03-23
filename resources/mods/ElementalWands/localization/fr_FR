@@ -1,0 +1,56 @@
+#Enchantment names
+enchantment.fireShield:    Bouclier de feu
+enchantment.fireball: 		 Boule de Feu
+enchantment.flameWeapon: 	 Flame Weapon
+enchantment.fireWall: 		 Mur de Feu
+enchantment.flameStep: 		 Flame Step
+enchantment.iceBolt: 		 Ice Bolt
+enchantment.swiftSwim: 		 Swift Swim
+enchantment.conjureWater: 	 Conjure Water
+enchantment.iceShield: 		 Bouclier de Glace
+enchantment.summonSnowGolem: Summon Snow Golem
+enchantment.stoneSpikes: 	 Stone Spikes
+enchantment.detectOre: 		 Detect Ore
+enchantment.entangle: 		 Entangle
+enchantment.earthShield: 	 Earth Shield
+enchantment.burrow: 		 Burrow
+enchantment.gust: 			 Gust
+enchantment.airShield: 		 Bouclier d'Air
+enchantment.safeFall: 		 Safe Fall
+enchantment.vortex: 		 Vortex
+enchantment.lightning: 		 Foudre
+enchantment.light: 			 Lumière
+enchantment.toughness: 		 Toughness
+enchantment.arcaneShield: 	 Bouclier Esotérique
+enchantment.dispel: 		 Dispel
+enchantment.magicMissile: 	 Missile Magique
+
+#Tab names
+itemGroup.wandTab: Les Bâton
+
+#Wand names
+item.wandFireWood.name:    	Bâton de feu en Bois
+item.wandFireBone.name:    	Bâton de feu en Os
+item.wandFireIron.name:    	Bâton de feu en Fer
+item.wandFireGold.name:    	Bâton de feu en Or
+item.wandFireQuartz.name:  	Bâton de feu en Nethter Quartz
+item.wandWaterWood.name:   	Bâton d'eau en Bois
+item.wandWaterBone.name:   	Bâton d'eau en Os
+item.wandWaterIron.name:   	Bâton d'eau en Fer
+item.wandWaterGold.name:   	Bâton d'eau en Or
+item.wandWaterQuartz.name: 	Bâton d'eau en Nether Quartz
+item.wandEarthWood.name:   	Bâton de terre en Bois
+item.wandEarthBone.name:   	Bâton de terre en Os
+item.wandEarthIron.name:   	Bâton de terre en Fer
+item.wandEarthGold.name:   	Bâton de terre en Or
+item.wandEarthQuartz.name: 	Bâton de terre en Nether Quartz
+item.wandAirWood.name: 	    Bâton d'air en Bois
+item.wandAirBone.name: 	   	Bâton d'air en Os
+item.wandAirIron.name: 	   	Bâton d'air en Fer
+item.wandAirGold.name: 	   	Bâton d'air en Or
+item.wandAirQuartz.name:   	Bâton d'air en Nether Quartz
+item.wandArcaneWood.name:  	Bâton ésotérique en Bois
+item.wandArcaneBone.name:  	Bâton ésotérique en Os
+item.wandArcaneIron.name:  	Bâton ésotérique en Fer
+item.wandArcaneGold.name:  	Bâton ésotérique en Or
+item.wandArcaneQuartz.name: Bâton ésotérique en Nether Quartz
