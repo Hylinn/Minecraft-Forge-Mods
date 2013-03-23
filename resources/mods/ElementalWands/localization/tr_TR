@@ -1,0 +1,56 @@
+#Enchantment names
+enchantment.fireShield:    Alev Kalkanı
+enchantment.fireball: 		 Ateştopu
+enchantment.flameWeapon: 	 Alev Silahı
+enchantment.fireWall: 		 Ateş Duvarı
+enchantment.flameStep: 		 Alev Adımı
+enchantment.iceBolt: 		 Buz Şimşeği
+enchantment.swiftSwim: 		 Çevik Yüzüş
+enchantment.conjureWater: 	 Suyu Büyüle
+enchantment.iceShield: 		 Buz Kalkanı
+enchantment.summonSnowGolem: Kar Golem Çağır
+enchantment.stoneSpikes: 	 Taş İğneler
+enchantment.detectOre: 		 Cevher Algıla
+enchantment.entangle: 		 Sallama
+enchantment.earthShield: 	 Yer Kalkanı
+enchantment.burrow: 		 Burrow
+enchantment.gust: 			 Gust
+enchantment.airShield: 		 Hava Kalkanı
+enchantment.safeFall: 		 Güvenli Düşüş
+enchantment.vortex: 		 Vorteks
+enchantment.lightning: 		 Şimşek
+enchantment.light: 			 Işık
+enchantment.toughness: 		 Sertlik
+enchantment.arcaneShield: 	 Ulu Kalkan
+enchantment.dispel: 		 Kurtul
+enchantment.magicMissile: 	 Sihirli Füze
+
+#Tab names
+itemGroup.wandTab: Asalar
+
+#Wand names
+item.wandFireWood.name:    	Tahta Ateş Asası
+item.wandFireBone.name:    	Kemik Ateş Asası
+item.wandFireIron.name:    	Demir Ateş Asası
+item.wandFireGold.name:    	Altın Ateş Asası
+item.wandFireQuartz.name:  	Nether Quartz Ateş Asası
+item.wandWaterWood.name:   	Tahta Su Asası
+item.wandWaterBone.name:   	Kemik Su Asası
+item.wandWaterIron.name:   	Demir Su Asası
+item.wandWaterGold.name:   	Altın Su Asası
+item.wandWaterQuartz.name: 	Nether Quartz Water Wand
+item.wandEarthWood.name:   	Tahta Yeryüzü Asası
+item.wandEarthBone.name:   	Kemik Yeryüzü Asası
+item.wandEarthIron.name:   	Demir Yeryüzü Asası
+item.wandEarthGold.name:   	Altın Yeryüzü Asası
+item.wandEarthQuartz.name: 	Nether Quartz Yeryüzü Asası
+item.wandAirWood.name: 	    Tahta Hava Asası
+item.wandAirBone.name: 	   	Kemik Hava Asası
+item.wandAirIron.name: 	   	Demir Hava Asası
+item.wandAirGold.name: 	   	Altın Hava Asası
+item.wandAirQuartz.name:   	Nether Quartz Hava Asası
+item.wandArcaneWood.name:  	Tahta Ulu Asa
+item.wandArcaneBone.name:  	Kemik Ulu Asa
+item.wandArcaneIron.name:  	Demir Ulu Asa
+item.wandArcaneGold.name:  	Altın Ulu Asa
+item.wandArcaneQuartz.name: Nether Quartz Ulu Asa
