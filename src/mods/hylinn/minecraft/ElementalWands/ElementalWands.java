@@ -12,6 +12,7 @@ import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.item.EnumAction;
 import net.minecraftforge.common.EnumHelper;
 import hylinn.minecraft.ElementalWands.client.ClientProxy;
+import hylinn.minecraft.ElementalWands.client.CommonProxy;
 import hylinn.minecraft.ElementalWands.creativetab.CreativeTabWand;
 import hylinn.minecraft.ElementalWands.enchantment.EnchantmentAirShield;
 import hylinn.minecraft.ElementalWands.enchantment.EnchantmentArcaneShield;
@@ -55,7 +56,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid="ElementalWands", name="Elemental Wands", version="0.0.3")
-@NetworkMod(clientSideRequired=true, serverSideRequired=false)
+@NetworkMod(clientSideRequired=true, serverSideRequired=true)
 public class ElementalWands {
 
     public static ItemWand[] wands;
@@ -103,7 +104,7 @@ public class ElementalWands {
     public static ElementalWands instance;
    
     @SidedProxy(clientSide="hylinn.minecraft.ElementalWands.client.ClientProxy", serverSide="hylinn.minecraft.ElementalWands.client.CommonProxy")
-    public static ClientProxy proxy = new ClientProxy();
+    public static CommonProxy proxy;
    
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
