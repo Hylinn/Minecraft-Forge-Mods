@@ -1,0 +1,56 @@
+#Enchantment names
+enchantment.fireShield:    Feuerschild
+enchantment.fireball: 		 Feuerball
+enchantment.flameWeapon: 	 Flammenwaffe
+enchantment.fireWall: 		 Feuerwand
+enchantment.flameStep: 		 Flammenstufe
+enchantment.iceBolt: 		 Eisblitz
+enchantment.swiftSwim: 		 Schnellschwimmen
+enchantment.conjureWater: 	 Zauberwasser
+enchantment.iceShield: 		 Eisschild
+enchantment.summonSnowGolem: Beschwöre Schnee Golem
+enchantment.stoneSpikes: 	 Stein Spikes
+enchantment.detectOre: 		 Erkenne Erz
+enchantment.entangle: 		 Verwicklung
+enchantment.earthShield: 	 Erdschild
+enchantment.burrow: 		 graben
+enchantment.gust: 			 Gust
+enchantment.airShield: 		 Luftschild
+enchantment.safeFall: 		 Sicherer Fall
+enchantment.vortex: 		 Vortex
+enchantment.lightning: 		 Blitz
+enchantment.light: 			 Licht
+enchantment.toughness: 		 Stärke
+enchantment.arcaneShield: 	 geheimes Schild
+enchantment.dispel: 		 Dispel
+enchantment.magicMissile: 	 Magierakete
+
+#Tab names
+itemGroup.wandTab: Zauberstäbe
+
+#Wand names
+item.wandFireWood.name:    	Hölzerner Feuerstab
+item.wandFireBone.name:    	Köchener Feuerstab
+item.wandFireIron.name:    	Eisener Feuerstab
+item.wandFireGold.name:    	Goldener Feuerstab
+item.wandFireQuartz.name:  	Netherquartz Feuerstab
+item.wandWaterWood.name:   	Hölzerner Wasserstab
+item.wandWaterBone.name:   	Köchener Wasserstab
+item.wandWaterIron.name:   	Eisener Wasserstab
+item.wandWaterGold.name:   	Goldener Wasserstab
+item.wandWaterQuartz.name: 	Netherquartz Wasserstab
+item.wandEarthWood.name:   	Hölzerner Erdstab
+item.wandEarthBone.name:   	Knöchener Erdstab
+item.wandEarthIron.name:   	Eisener Erdstab
+item.wandEarthGold.name:   	Goldener Erdstab
+item.wandEarthQuartz.name: 	Netherquartz Erdstab
+item.wandAirWood.name: 	    Hölzerner Luftstab
+item.wandAirBone.name: 	   	Knöchener Luftstab
+item.wandAirIron.name: 	   	Eisener Luftstab
+item.wandAirGold.name: 	   	Goldener Luftstab
+item.wandAirQuartz.name:   	Netherquartz Luftstab
+item.wandArcaneWood.name:  	Hölzerner Geheimstab
+item.wandArcaneBone.name:  	Knöchener Geheimstab
+item.wandArcaneIron.name:  	Eisener Geheimstab
+item.wandArcaneGold.name:  	Goldener Geheimstab
+item.wandArcaneQuartz.name: Netherquartz Geheimstab
