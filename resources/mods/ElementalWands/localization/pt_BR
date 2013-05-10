@@ -1,0 +1,56 @@
+#Enchantment names
+enchantment.fireShield:    Escudo de Fogo
+enchantment.fireball: 		 Bola de fogo
+enchantment.flameWeapon: 	 Arma de fogo
+enchantment.fireWall: 		 Parede de fogo
+enchantment.flameStep: 		 Passo de fogo
+enchantment.iceBolt: 		 Trovão de Gelo
+enchantment.swiftSwim: 		 Nado Rápido
+enchantment.conjureWater: 	 Conjuramento Aquático
+enchantment.iceShield: 		 Escudo de Gelo
+enchantment.summonSnowGolem: Invocar o Golem de Gelo
+enchantment.stoneSpikes: 	 Espinhos de pedra
+enchantment.detectOre: 		 Detectar Minério
+enchantment.entangle: 		 Entangle
+enchantment.earthShield: 	 Escudo térreo
+enchantment.burrow: 		 Emprestar
+enchantment.gust: 			 Ventania
+enchantment.airShield: 		 Escudo de ar
+enchantment.safeFall: 		 Queda livre
+enchantment.vortex: 		 Vazio
+enchantment.lightning: 		 Trovão
+enchantment.light: 			 Luz
+enchantment.toughness: 		 Resistência
+enchantment.arcaneShield: 	 Escudo Arcano
+enchantment.dispel: 		 Desencantar
+enchantment.magicMissile: 	 Escudo Mágico
+
+#Tab names
+itemGroup.wandTab: Varinhas
+
+#Wand names
+item.wandFireWood.name:    	Varinha de fogo lígnea
+item.wandFireBone.name:    	Varinha de fogo óssea
+item.wandFireIron.name:    	Varinha de fogo férrea
+item.wandFireGold.name:    	Varinha de fogo áurea
+item.wandFireQuartz.name:  	Varinha de fogo Nethero-Quartzítica
+item.wandWaterWood.name:   	Varinha de água lígnea
+item.wandWaterBone.name:   	Varinha de água óssea
+item.wandWaterIron.name:   	Varinha de água férrea
+item.wandWaterGold.name:   	Varinha de água áurea
+item.wandWaterQuartz.name: 	Varinha de água Nethero-Quartzítica
+item.wandEarthWood.name:   	Varinha de terra lígnea
+item.wandEarthBone.name:   	Varinha de terra óssea
+item.wandEarthIron.name:   	Varinha de terra férrea
+item.wandEarthGold.name:   	Varinha de terra áurea
+item.wandEarthQuartz.name: 	Varinha de terra Nethero-Quartzítica
+item.wandAirWood.name: 	    Varinha de ar lígnea
+item.wandAirBone.name: 	   	Varinha de ar óssea
+item.wandAirIron.name: 	   	Varinha de ar férrea
+item.wandAirGold.name: 	   	Varinha de ar áurea
+item.wandAirQuartz.name:   	Varinha de ar Nethero-Quartzítica
+item.wandArcaneWood.name:  	Varinha arcana lígnea
+item.wandArcaneBone.name:  	Varinha arcana óssea
+item.wandArcaneIron.name:  	Varinha arcana férrea
+item.wandArcaneGold.name:  	Varinha arcana áurea
+item.wandArcaneQuartz.name: Varinha arcana Nethero-Quartzítica
